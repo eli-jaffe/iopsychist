@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homes | IOPsychist</title>
+    <link>https://academic-demo.netlify.app/home/</link>
+      <atom:link href="https://academic-demo.netlify.app/home/index.xml" rel="self" type="application/rss+xml" />
+    <description>Homes</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022</copyright>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <title>Homes</title>
+      <link>https://academic-demo.netlify.app/home/</link>
+    </image>
+    
+    <item>
+      <title>Biography</title>
+      <link>https://academic-demo.netlify.app/home/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/home/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recent Posts</title>
+      <link>https://academic-demo.netlify.app/home/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/home/posts/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
