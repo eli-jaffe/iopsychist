@@ -60,10 +60,10 @@
   
     
   
-  <meta name="description" content="" />
+  <meta name="description" content="Sometimes, the database you want to connect a Jupyter Notebook to is located behind an SSH tunnel. Using the files here, you can set establish the SSH connection and connect to the database all from within Python." />
 
   
-  <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/tags/" />
+  <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/" />
 
   
   
@@ -268,8 +268,6 @@
   
 
   
-    <link rel="alternate" href="/tags/index.xml" type="application/rss+xml" title="IOPsychist" />
-  
 
   
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -278,7 +276,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="https://academic-demo.netlify.app/tags/" />
+  <link rel="canonical" href="https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/" />
 
   
   
@@ -301,33 +299,82 @@
   <meta property="twitter:card" content="summary" />
   
   <meta property="og:site_name" content="IOPsychist" />
-  <meta property="og:url" content="https://academic-demo.netlify.app/tags/" />
-  <meta property="og:title" content="Tags | IOPsychist" />
-  <meta property="og:description" content="" /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/" />
+  <meta property="og:title" content="Configuring an SSH connection in Jupyter Notebooks | IOPsychist" />
+  <meta property="og:description" content="Sometimes, the database you want to connect a Jupyter Notebook to is located behind an SSH tunnel. Using the files here, you can set establish the SSH connection and connect to the database all from within Python." /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
-      <meta property="og:updated_time" content="2022-01-10T00:00:00&#43;00:00" />
+      <meta
+        property="article:published_time"
+        content="2022-01-10T00:00:00&#43;00:00"
+      />
     
+    <meta property="article:modified_time" content="2022-01-10T09:19:31-05:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/"
+  },
+  "headline": "Configuring an SSH connection in Jupyter Notebooks",
+  
+  "datePublished": "2022-01-10T00:00:00Z",
+  "dateModified": "2022-01-10T09:19:31-05:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "IOPsychist"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "IOPsychist",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "Sometimes, the database you want to connect a Jupyter Notebook to is located behind an SSH tunnel. Using the files here, you can set establish the SSH connection and connect to the database all from within Python."
+}
+</script>
+
+  
+
+  
+
   
 
   
 
 
 
-  
-
-  
 
 
-
-
-
-  <title>Tags | IOPsychist</title>
+  <title>Configuring an SSH connection in Jupyter Notebooks | IOPsychist</title>
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   "  >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="c5161f3d49712ed4f53493597e509685" >
 
   
   
@@ -561,7 +608,9 @@
   </div>
 
   <div class="page-body">
-    
+    <article class="article">
+
+  
 
 
 
@@ -579,53 +628,13 @@
   
   
   
-    
-  
-<div class="universal-wrapper pt-3">
-  <h1>Tags</h1>
+<div class="article-container pt-3">
+  <h1>Configuring an SSH connection in Jupyter Notebooks</h1>
 
   
 
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-  
-
-  
   
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/tag/database/" >Database</a>
-    </div>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 <div class="article-metadata">
@@ -637,6 +646,8 @@
   <span class="article-date">
     
     
+      
+          Last updated on
       
     
     Jan 10, 2022
@@ -646,84 +657,13 @@
   
 
   
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/tag/jupyter/" >Jupyter</a>
-    </div>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Jan 10, 2022
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
   </span>
   
 
   
-
-  
-
-  
   
   
   
@@ -731,559 +671,385 @@
   
 
   
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/people-analytics/">People Analytics</a></span>
   
 
 </div>
 
-      
-    </div>
-
     
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
+
+
+
 
   
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>Sometimes, the database you want to connect a Jupyter Notebook to is  located behind an SSH tunnel. Using the files here, you can set establish the SSH connection and connect to the database all from within Python.</p>
+<p>I have this set up such that both the config file and the connector methods are separate from the Python script you are working in. However, you can also copy the mypython_dbconnector.py file into a Jupyter Notebook and not worry about importing it. I like the separation to keep the ipynb file clean. <em>Note:</em> this code is adapted from <a href="https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python" target="_blank" rel="noopener">https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python</a></p>
+<h2 id="create-the-functions-we-will-use">Create the functions we will use</h2>
+<p>We need to define a few functions for easily connecting to the database. In this case, we are connecting to a MySQL database so we use the Python package <code>pymysql</code>. This can easily be changed to a different database if your needs require.</p>
+<p>Create a file mypython_dbconnector.py with the following code:</p>
+<pre><code class="language-python">
+import pandas as pd
+import matplotlib.pyplot as plt
+import pymysql
+import logging
+import sshtunnel
+from sshtunnel import SSHTunnelForwarder
+
+import config
+
+
+# define the functions we will be using
+
+def open_ssh_tunnel(verbose=False):
+    &quot;&quot;&quot;Open an SSH tunnel and connect using a username and password.
+    
+    :param verbose: Set to True to show logging
+    :return tunnel: Global SSH tunnel connection
+    &quot;&quot;&quot;
+    
+    if verbose:
+        sshtunnel.DEFAULT_LOGLEVEL = logging.DEBUG
+    
+    global tunnel
+    tunnel = SSHTunnelForwarder(
+        (config.ssh_host, 22),
+        ssh_username = config.ssh_username,
+        ssh_password = config.ssh_password,
+        remote_bind_address = ('127.0.0.1', 3306)
+    )
+    
+    tunnel.start()
+    
+    
+def mysql_connect():
+    &quot;&quot;&quot;Connect to a MySQL server using the SSH tunnel connection
+    
+    :return connection: Global MySQL database connection
+    &quot;&quot;&quot;
+    
+    global connection
+    
+    connection = pymysql.connect(
+        host='127.0.0.1',
+        user=config.database_username,
+        password=config.database_password,
+        database=config.database_name,
+        port=tunnel.local_bind_port
+    )
     
 
+def run_query(sql):
+    &quot;&quot;&quot;Runs a given SQL query via the global database connection.
+    
+    :param sql: MySQL query
+    :return: Pandas dataframe containing results
+    &quot;&quot;&quot;
+    
+    return pd.read_sql_query(sql, connection)
 
 
+def mysql_disconnect():
+    &quot;&quot;&quot;Closes the MySQL database connection.
+    &quot;&quot;&quot;
+    
+    connection.close()
+    
+    
+def close_ssh_tunnel():
+    &quot;&quot;&quot;Closes the SSH tunnel connection.
+    &quot;&quot;&quot;
+    
+    tunnel.close
 
+</code></pre>
+<div class="warning">
+*Note: saving this file as dbconnector.py may interfere with other packages in your environment and lead to unexpected behaviors.
+</div>
+<h2 id="create-the-config-file-with-our-connection-credentials">Create the config file with our connection credentials</h2>
+<p>Next, we need to provide python with the credentials to connect. I like to define these in a separate file so that I can share the actual Jupyter notebook with my work and not have to worry about security. Enter your usernames and passwords in the file below and save it as <code>config.py</code>.</p>
+<pre><code class="language-python">
+# Standard TCP/IP
 
+# may need to change this depending on your tunnel connection details
+ssh_host = '128.122.34.205'
+# port 22 by default
 
+ssh_username = 'SSH_USERNAME'
+ssh_password = 'SSH_PASSWORD'
 
+database_name = 'YOUR_DATABASE_NAME'
+localhost = '127.0.0.1'
+# port 3306 by default
 
+database_username = 'YOUR_USERNAME'
+database_password = 'YOUR_PASSWORD'
 
+</code></pre>
+<h2 id="connect-to-the-database-and-get-to-work">Connect to the database and get to work!</h2>
+<p>Finally, we are ready to connect and start working with our data. Make sure both the files we just created are in the same directory and then create a new Jupyter Notebook file in the same location.</p>
+<pre><code class="language-python">
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 
+import mypython_dbconnector
 
+</code></pre>
+<p>We start with the imports we will be using for our work, along with importing our file <code>mypthon_dbconnector.py</code>. Now, all we need to do is call the functions we defined earlier. We then pass our sql query as a string to our <code>run_query()</code> command and save the return value to a dataframe. Rinse and repeat as necessary!</p>
+<pre><code class="language-python"># connect to ssh tunnel and to mysql db
+mypython_dbconnector.open_ssh_tunnel()
+mypython_dbconnector.mysql_connect()
 
+# define query
+query = '''
+SELECT
+    *
+FROM
+    table_name
+'''
 
+df = mypython_dbconnector.run_query(query)
 
-<div class="media stream-item view-compact">
-  <div class="media-body">
+# your data analysis here
+# TODO
 
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/tag/mysql/" >MySQL</a>
+# close mysql connection and close ssh tunnel
+mypython_dbconnector.mysql_disconnect()
+mypython_dbconnector.close_ssh_tunnel()
+</code></pre>
+<p>Once you are connected to the database through the ssh tunnel, you can access it a you normally would. Be sure to disconnect from the database and close the SSH tunnel when you are done working with it. The full directory setup with example jupyter notebook can be found at <a href="https://github.com/eli-jaffe/ssh_mysql_connect" target="_blank" rel="noopener">https://github.com/eli-jaffe/ssh_mysql_connect</a>.</p>
+
     </div>
 
     
 
-    <div class="stream-meta article-metadata">
 
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/jupyter/">Jupyter</a>
+  
+  <a class="badge badge-light" href="/tag/python/">Python</a>
+  
+  <a class="badge badge-light" href="/tag/database/">Database</a>
+  
+  <a class="badge badge-light" href="/tag/mysql/">MySQL</a>
+  
+  <a class="badge badge-light" href="/tag/tutorial/">tutorial</a>
+  
+</div>
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
       
-
+      
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/&amp;text=Configuring%20an%20SSH%20connection%20in%20Jupyter%20Notebooks" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
       
-    
-    Jan 10, 2022
-  </span>
-  
-
-  
-
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/tag/python/" >Python</a>
-    </div>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/&amp;t=Configuring%20an%20SSH%20connection%20in%20Jupyter%20Notebooks" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
       
-    
-    Jan 10, 2022
-  </span>
-  
-
-  
-
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/tag/tutorial/" >tutorial</a>
-    </div>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Configuring%20an%20SSH%20connection%20in%20Jupyter%20Notebooks&amp;body=https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
       
-    
-    Jan 10, 2022
-  </span>
-  
-
-  
-
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/tag/ta/" >TA</a>
-    </div>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/&amp;title=Configuring%20an%20SSH%20connection%20in%20Jupyter%20Notebooks" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
     
       
-    
-    Jan 9, 2022
-  </span>
-  
-
-  
-
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/tag/source-themes/" >Source Themes</a>
-    </div>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Configuring%20an%20SSH%20connection%20in%20Jupyter%20Notebooks%20https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
     
       
-    
-    Apr 7, 2019
-  </span>
-  
-
-  
-
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/tag/deep-learning/" >Deep Learning</a>
-    </div>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
       
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/&amp;title=Configuring%20an%20SSH%20connection%20in%20Jupyter%20Notebooks" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
-    Apr 27, 2016
-  </span>
-  
-
-  
-
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
+  </ul>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://academic-demo.netlify.app/">IOPsychist</a></h5>
       
+      <p class="card-text">My research interests include IOPsychology, People Analytics and the Future of Work.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/IOpsychist" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/eli-jaffe" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
     </div>
+  </div>
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
 
   </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/tag/demo/" >Demo</a>
-    </div>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Apr 27, 2016
-  </span>
-  
-
-  
-
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
-
-  
-
-</div>
+</article>
   </div>
 
   <div class="page-footer">
