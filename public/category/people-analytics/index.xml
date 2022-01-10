@@ -156,5 +156,101 @@ mypython_dbconnector.close_ssh_tunnel()
 </description>
     </item>
     
+    <item>
+      <title>Resources: People Analytics</title>
+      <link>https://iopsychist.netlify.app/post/resources-people-analytics/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/resources-people-analytics/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve gathered a number of resources which have helped me at various stages in my journey into People Analytics. Most of the resources listed here range from the beginner to intermediate level. Hopefully they can be of help as you progress along your own journey.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;th&gt;Link&lt;/th&gt;
+&lt;th&gt;Note&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;r/IO Programming Starter Kit&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://docs.google.com/document/u/0/d/1OZih--8wujuAdyxln5uvrRHOZQBvjI4pN6VHjPY5d_0/mobilebasic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.google.com/document/u/0/d/1OZih--8wujuAdyxln5uvrRHOZQBvjI4pN6VHjPY5d_0/mobilebasic&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compensation Analytics Dashboard in Tableau&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://public.tableau.com/profile/luisbatista#!/vizhome/HRAnalyticsDashboard_16097240839050/Compensation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://public.tableau.com/profile/luisbatista#!/vizhome/HRAnalyticsDashboard_16097240839050/Compensation&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Analyzing National Salary Equity in R with Tidyverse&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.airweb.org/article/2019/04/17/analyzing-national-salary-equity-in-r-with-tidyverse&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.airweb.org/article/2019/04/17/analyzing-national-salary-equity-in-r-with-tidyverse&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Glassdoor Report Analyzing Gender Pay Gap&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.glassdoor.com/research/app/uploads/sites/2/2019/03/GD_Report_AnalyzingGenderPayGap_v2-2.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.glassdoor.com/research/app/uploads/sites/2/2019/03/GD_Report_AnalyzingGenderPayGap_v2-2.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Empath&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/Ejhfast/empath-client&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Ejhfast/empath-client&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;From the author: Empath is a Python library for analyzing text data, something I&amp;rsquo;ve been working a lot with lately. It&amp;rsquo;s a tool that can generate and validate new lexical categories on demand through deep learning and a corpus of more than 1.8 billion words. What&amp;rsquo;s cool about it is that it was built to be a reverse-engineered version of the Linguistic Inquiry and Word Count [LIWC], which has been used for psychometric applications and research. You can read more about LIWC here, and the Empath whitepaper can also be found here.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data Skills for Reproducible Research&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://psyteachr.github.io/reprores-v2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://psyteachr.github.io/reprores-v2/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Github of a Dr in IO Psych - lots of R resources&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jeromyanglim/r-vandenberghe-exercise&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/jeromyanglim/r-vandenberghe-exercise&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&amp;lt;- this link is EFA specific example but click around and find out&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EFA and CFA tutorials&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://stats.idre.ucla.edu/spss/seminars/introduction-to-factor-analysis/a-practical-introduction-to-factor-analysis/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://stats.idre.ucla.edu/spss/seminars/introduction-to-factor-analysis/a-practical-introduction-to-factor-analysis/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Psychometric open dataset&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://openpsychometrics.org/_rawdata/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://openpsychometrics.org/_rawdata/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Investing in People Online&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://orgtools.shinyapps.io/IIP3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://orgtools.shinyapps.io/IIP3/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&amp;lt;&amp;ndash; calculator for employee separations (turnover)  absenteeism  health and welfare  attitudes and engagement  workplace flexibility programs  staffing utility  payoffs from improved selection  payoffs from training and development&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;How to Analyze the Gender Pay Gap&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.glassdoor.com/research/app/uploads/sites/2/2019/03/GD_Report_AnalyzingGenderPayGap_v2-2.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.glassdoor.com/research/app/uploads/sites/2/2019/03/GD_Report_AnalyzingGenderPayGap_v2-2.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Grabbing and Analyzing Pay Data with Python&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://towardsdatascience.com/a-beginners-guide-to-grabbing-and-analyzing-salary-data-in-python-e8c60eab186e&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://towardsdatascience.com/a-beginners-guide-to-grabbing-and-analyzing-salary-data-in-python-e8c60eab186e&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Re:Work (ie Google) guide to pay equity analysis&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://rework.withgoogle.com/guides/pay-equity/steps/analyze-the-data-and-look-for-variance/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://rework.withgoogle.com/guides/pay-equity/steps/analyze-the-data-and-look-for-variance/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Network Analysis for Business Performance webinar series - focuses on overview as well as UCINET software&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://connectedcommons.com/network-analysis-for-business-performance/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://connectedcommons.com/network-analysis-for-business-performance/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Handbook of Regression Modeling in People Analytics&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://peopleanalytics-regression-book.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://peopleanalytics-regression-book.org/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;font color=&#34;grey&#34;&gt; Originally posted: January 10, 2022&lt;/font&gt;&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
