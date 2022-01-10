@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MySQL | IOPsychist</title>
-    <link>https://academic-demo.netlify.app/tag/mysql/</link>
-      <atom:link href="https://academic-demo.netlify.app/tag/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://iopsychist.netlify.app/tag/mysql/</link>
+      <atom:link href="https://iopsychist.netlify.app/tag/mysql/index.xml" rel="self" type="application/rss+xml" />
     <description>MySQL</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <url>https://iopsychist.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>MySQL</title>
-      <link>https://academic-demo.netlify.app/tag/mysql/</link>
+      <link>https://iopsychist.netlify.app/tag/mysql/</link>
     </image>
     
     <item>
       <title>Configuring an SSH connection in Jupyter Notebooks</title>
-      <link>https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</link>
+      <link>https://iopsychist.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</link>
       <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</guid>
+      <guid>https://iopsychist.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</guid>
       <description>&lt;p&gt;Sometimes, the database you want to connect a Jupyter Notebook to is  located behind an SSH tunnel. Using the files here, you can set establish the SSH connection and connect to the database all from within Python.&lt;/p&gt;
 &lt;p&gt;I have this set up such that both the config file and the connector methods are separate from the Python script you are working in. However, you can also copy the mypython_dbconnector.py file into a Jupyter Notebook and not worry about importing it. I like the separation to keep the ipynb file clean. &lt;em&gt;Note:&lt;/em&gt; this code is adapted from &lt;a href=&#34;https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;create-the-functions-we-will-use&#34;&gt;Create the functions we will use&lt;/h2&gt;

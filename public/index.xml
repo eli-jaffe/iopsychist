@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IOPsychist</title>
-    <link>https://academic-demo.netlify.app/</link>
-      <atom:link href="https://academic-demo.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://iopsychist.netlify.app/</link>
+      <atom:link href="https://iopsychist.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <description>IOPsychist</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <url>https://iopsychist.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>IOPsychist</title>
-      <link>https://academic-demo.netlify.app/</link>
+      <link>https://iopsychist.netlify.app/</link>
     </image>
     
     <item>
       <title>Python basics</title>
-      <link>https://academic-demo.netlify.app/courses/example/python/</link>
+      <link>https://iopsychist.netlify.app/courses/example/python/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/courses/example/python/</guid>
+      <guid>https://iopsychist.netlify.app/courses/example/python/</guid>
       <description>&lt;p&gt;Build a foundation in Python.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
@@ -51,9 +51,9 @@
     
     <item>
       <title>Visualization</title>
-      <link>https://academic-demo.netlify.app/courses/example/visualization/</link>
+      <link>https://iopsychist.netlify.app/courses/example/visualization/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/courses/example/visualization/</guid>
+      <guid>https://iopsychist.netlify.app/courses/example/visualization/</guid>
       <description>&lt;p&gt;Learn how to visualize data with Plotly.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
@@ -81,9 +81,9 @@ fig.show()
     
     <item>
       <title>Statistics</title>
-      <link>https://academic-demo.netlify.app/courses/example/stats/</link>
+      <link>https://iopsychist.netlify.app/courses/example/stats/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/courses/example/stats/</guid>
+      <guid>https://iopsychist.netlify.app/courses/example/stats/</guid>
       <description>&lt;p&gt;Introduction to statistics for data science.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
@@ -109,9 +109,9 @@ The variance of the distribution is $\sigma^{2}$.
     
     <item>
       <title>Example Talk</title>
-      <link>https://academic-demo.netlify.app/talk/example-talk/</link>
+      <link>https://iopsychist.netlify.app/talk/example-talk/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/talk/example-talk/</guid>
+      <guid>https://iopsychist.netlify.app/talk/example-talk/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -129,9 +129,9 @@ The variance of the distribution is $\sigma^{2}$.
     
     <item>
       <title>Configuring an SSH connection in Jupyter Notebooks</title>
-      <link>https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</link>
+      <link>https://iopsychist.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</link>
       <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</guid>
+      <guid>https://iopsychist.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</guid>
       <description>&lt;p&gt;Sometimes, the database you want to connect a Jupyter Notebook to is  located behind an SSH tunnel. Using the files here, you can set establish the SSH connection and connect to the database all from within Python.&lt;/p&gt;
 &lt;p&gt;I have this set up such that both the config file and the connector methods are separate from the Python script you are working in. However, you can also copy the mypython_dbconnector.py file into a Jupyter Notebook and not worry about importing it. I like the separation to keep the ipynb file clean. &lt;em&gt;Note:&lt;/em&gt; this code is adapted from &lt;a href=&#34;https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;create-the-functions-we-will-use&#34;&gt;Create the functions we will use&lt;/h2&gt;
@@ -273,9 +273,9 @@ mypython_dbconnector.close_ssh_tunnel()
     
     <item>
       <title>Talent Acquisition Process Framework</title>
-      <link>https://academic-demo.netlify.app/post/talent-acquisition-process-framework/</link>
+      <link>https://iopsychist.netlify.app/post/talent-acquisition-process-framework/</link>
       <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/talent-acquisition-process-framework/</guid>
+      <guid>https://iopsychist.netlify.app/post/talent-acquisition-process-framework/</guid>
       <description>&lt;p&gt;A good recruiter will find strong candidates. At scale, however, an organization cannot simply rely on good recruiters to fill its open positions in a reliable, time bound manner. Moreover, doing so would make it difficult to consistently plan around hiring times. With the start of 2022 seeing &lt;a href=&#34;https://twitter.com/Josh_Bersin/status/1478135382298411008&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;more job postings for Recruiters than Software Engineers&lt;/a&gt;, your organization must be strategic in its approach to hiring. Furthermore, a strong TA process will increase the effectiveness of anyone on your team seeking to support recruiting.&lt;/p&gt;
 &lt;p&gt;To make Talent Acquisition a part of your organizations strategic advantage, an effective Talent Acquisition &lt;strong&gt;&lt;em&gt;process&lt;/em&gt;&lt;/strong&gt; must be implemented. If you are facing resistance in your organization to adopting such a strategy, I lay out the business case for taking a strategic, data-driven approach.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Business Case:&lt;/strong&gt;&lt;br&gt;
@@ -293,9 +293,9 @@ The key tenets of an effective TA Process are visibility and traceability. Remem
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>https://academic-demo.netlify.app/publication/preprint/</link>
+      <link>https://iopsychist.netlify.app/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/publication/preprint/</guid>
+      <guid>https://iopsychist.netlify.app/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
@@ -307,9 +307,9 @@ The key tenets of an effective TA Process are visibility and traceability. Remem
     
     <item>
       <title>Slides</title>
-      <link>https://academic-demo.netlify.app/slides/example/</link>
+      <link>https://iopsychist.netlify.app/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/slides/example/</guid>
+      <guid>https://iopsychist.netlify.app/slides/example/</guid>
       <description>&lt;h1 id=&#34;create-slides-in-markdown-with-wowchemy&#34;&gt;Create slides in Markdown with Wowchemy&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wowchemy&lt;/a&gt; | &lt;a href=&#34;https://owchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -436,17 +436,17 @@ $$&lt;/p&gt;
     
     <item>
       <title>External Project</title>
-      <link>https://academic-demo.netlify.app/project/external-project/</link>
+      <link>https://iopsychist.netlify.app/project/external-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/project/external-project/</guid>
+      <guid>https://iopsychist.netlify.app/project/external-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Internal Project</title>
-      <link>https://academic-demo.netlify.app/project/internal-project/</link>
+      <link>https://iopsychist.netlify.app/project/internal-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/project/internal-project/</guid>
+      <guid>https://iopsychist.netlify.app/project/internal-project/</guid>
       <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
 &lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
 &lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
@@ -457,9 +457,9 @@ $$&lt;/p&gt;
     
     <item>
       <title>An example journal article</title>
-      <link>https://academic-demo.netlify.app/publication/journal-article/</link>
+      <link>https://iopsychist.netlify.app/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/publication/journal-article/</guid>
+      <guid>https://iopsychist.netlify.app/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -476,9 +476,9 @@ $$&lt;/p&gt;
     
     <item>
       <title>An example conference paper</title>
-      <link>https://academic-demo.netlify.app/publication/conference-paper/</link>
+      <link>https://iopsychist.netlify.app/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/publication/conference-paper/</guid>
+      <guid>https://iopsychist.netlify.app/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -495,9 +495,9 @@ $$&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>https://academic-demo.netlify.app/admin/config.yml</link>
+      <link>https://iopsychist.netlify.app/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/admin/config.yml</guid>
+      <guid>https://iopsychist.netlify.app/admin/config.yml</guid>
       <description></description>
     </item>
     
