@@ -97,8 +97,8 @@ def close_ssh_tunnel():
     tunnel.close
 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;warning&#34;&gt;
-*Note: saving this file as dbconnector.py may interfere with other packages in your environment and lead to unexpected behaviors.
+&lt;div class=&#34;warning&#34; style=&#34;background-color:lightyellow&#34;&gt;
+&lt;i&gt;Note:&lt;/i&gt; saving this file as dbconnector.py may interfere with other packages in your environment and lead to unexpected behaviors.
 &lt;/div&gt;
 &lt;h2 id=&#34;create-the-config-file-with-our-connection-credentials&#34;&gt;Create the config file with our connection credentials&lt;/h2&gt;
 &lt;p&gt;Next, we need to provide python with the credentials to connect. I like to define these in a separate file so that I can share the actual Jupyter notebook with my work and not have to worry about security. Enter your usernames and passwords in the file below and save it as &lt;code&gt;config.py&lt;/code&gt;.&lt;/p&gt;

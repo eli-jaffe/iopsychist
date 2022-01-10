@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TA | IOPsychist</title>
-    <link>https://iopsychist.netlify.app/tag/ta/</link>
-      <atom:link href="https://iopsychist.netlify.app/tag/ta/index.xml" rel="self" type="application/rss+xml" />
-    <description>TA</description>
+    <title>Process | IOPsychist</title>
+    <link>https://iopsychist.netlify.app/tag/process/</link>
+      <atom:link href="https://iopsychist.netlify.app/tag/process/index.xml" rel="self" type="application/rss+xml" />
+    <description>Process</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://iopsychist.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
-      <title>TA</title>
-      <link>https://iopsychist.netlify.app/tag/ta/</link>
+      <title>Process</title>
+      <link>https://iopsychist.netlify.app/tag/process/</link>
     </image>
     
     <item>
@@ -61,26 +61,6 @@ Incorporating the intake form (whether this specific one or something similar) w
 &lt;/br&gt;
 &lt;br&gt;
 &lt;font color=&#34;grey&#34;&gt; Originally posted: January 10, 2022&lt;/font&gt;</description>
-    </item>
-    
-    <item>
-      <title>Talent Acquisition Process Framework</title>
-      <link>https://iopsychist.netlify.app/post/talent-acquisition-process-framework/</link>
-      <pubDate>Mon, 03 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://iopsychist.netlify.app/post/talent-acquisition-process-framework/</guid>
-      <description>&lt;p&gt;A good recruiter will find strong candidates. At scale, however, an organization cannot simply rely on good recruiters to fill its open positions in a reliable, time bound manner. Moreover, doing so would make it difficult to consistently plan around hiring times. With the start of 2022 seeing &lt;a href=&#34;https://twitter.com/Josh_Bersin/status/1478135382298411008&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;more job postings for Recruiters than Software Engineers&lt;/a&gt;, your organization must be strategic in its approach to hiring. Furthermore, a strong TA process will increase the effectiveness of anyone on your team seeking to support recruiting.&lt;/p&gt;
-&lt;p&gt;To make Talent Acquisition a part of your organization&amp;rsquo;s strategic advantage, an effective Talent Acquisition &lt;strong&gt;&lt;em&gt;process&lt;/em&gt;&lt;/strong&gt; must be implemented. If you are facing resistance in your organization to adopting such a strategy, I lay out the business case for taking a strategic, data-driven approach.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Business Case:&lt;/strong&gt;&lt;br&gt;
-Like any human process, the recruitment process for any company is&amp;ndash;at its core&amp;ndash;uncertain. The hiring team attempts to use incomplete information on the candidate&amp;rsquo;s past experience, current knowledge, dispositional traits, and future potential. The sources of this information may have varying degrees of accuracy and reliability. The candidate may exhibit different levels of performance during the interview process for reasons outside the awareness of the hiring team &amp;ndash; whether due to stress at the current job, activity in their personal life, even for such reasons of poor sleep or a
-bad commute. These inconsistencies in performance are, to a larger degree than most would like to admit, unrepresentative of on-the-job-performance. Each of the guesses, estimates, and inferences that the hiring team makes during the recruiting process open the door to uncertainty, bias, and error. Not to mention, the candidate is forming judgements based on impressions from the interviewers. Even if recruitment has gone well for a position whereby the team has accurately defined their needs, sourced quality candidates, and effectively narrowed in on the strongest candidate, the candidate may not choose to ultimately join the company.&lt;/p&gt;
-&lt;p&gt;The goal of a strong recruitment process is to minimize the &lt;em&gt;noise&lt;/em&gt; associated with the selection process and to maximize the likelihood that the selected candidate chooses to join the company. In the face of such uncertainty, the process itself should not add to noise in the overall system. Rather, it should open a window to the &lt;em&gt;signals&lt;/em&gt; that will allow the astute observer to understand the activity within their practices.&lt;/p&gt;
-&lt;p&gt;In an organization with multiple open positions and multiple team members supporting recruiting, this means &lt;strong&gt;standardization&lt;/strong&gt; of practices. The actions of one recruiter should align with the actions of another. The milestones for one job should not differ substantially from the milestones of another. Failing to do this is costly. What happens when one recruiter gets sick, takes vacation, or leaves the organization? How does their coworker jump in and know what&amp;rsquo;s going on? If there is no understanding of metrics, how does the organization know where to put its resources? If there is no sense for time to hire, how does the team know whether they are outperforming the market or not? If new hires are not succeeding in the position, how does the company know where the function is broken in order to make changes?&lt;/p&gt;
-&lt;p&gt;Adopting a framework that enables consistent processes allows for good data to be captured on all parts of the process, thus opening a window to answer these questions. You may be collecting such data already, but without this standardization what does time to hire mean, in aggregate, across your organization? Is it one day because you only add candidates into the system once they&amp;rsquo;ve completed all interviews and you want to make an offer? Is it 120 days because you sometimes don&amp;rsquo;t bother marking them as hired since you&amp;rsquo;d rather get started with their onboarding than make a quick clerical adjustment to the system? What if your ATS tells you that 65% of your hires come from LinkedIn Job Postings, your most expensive vendor, when really you haven&amp;rsquo;t captured source details for 50% of your top performing hires? Do you invest more in LinkedIn and hope to get top performers? Or do you go with you gut and invest in job fairs since you have a feeling that your best hires came through your college recruiting efforts? That&amp;rsquo;s a tough call, and it doesn&amp;rsquo;t need to be if you consistently practice good data hygiene.&lt;/p&gt;
-&lt;p&gt;How does this enable success? It allows your team members to collaborate, helping each other out on the those tough to fill roles. It allows new hires to quickly get up to speed with what, exactly, your process is. It allows junior members to provide a similar candidate experience as your tenured veterans. &lt;mark&gt;Essentially, a good process &amp;lsquo;bakes in&amp;rsquo; best practices&amp;ndash;reducing onboarding times and building institutional knowledge that transcends any one team member.&lt;/mark&gt;&lt;/p&gt;
-&lt;p&gt;Once a solid TA process has been established, you can begin collecting data on what works for your organization. Stayed tuned for further posts on what this looks like and how to implement it in your position.&lt;/p&gt;
-&lt;p&gt;Key Tenets:&lt;br&gt;
-The key tenets of an effective TA Process are visibility and traceability. Remember, good data in &amp;ndash;&amp;gt; good data out&lt;/p&gt;
-</description>
     </item>
     
   </channel>
