@@ -69,11 +69,10 @@ type(data)
 &lt;pre&gt;&lt;code&gt;## dict_keys([&amp;#39;rows&amp;#39;, &amp;#39;time&amp;#39;, &amp;#39;fields&amp;#39;, &amp;#39;total_rows&amp;#39;])&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We see that is of type dict with the keys ‘rows’, ‘time’, ‘fields’, and ‘total_rows’. Rows seems relevant to our needs, and we can confirm this by looking at a single observation.&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# rows seem like what we&amp;#39;ll need
-print(data[&amp;#39;rows&amp;#39;][0])
-
-# pull this into a pandas dataframe&lt;/code&gt;&lt;/pre&gt;
+print(data[&amp;#39;rows&amp;#39;][0])&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## {&amp;#39;cartodb_id&amp;#39;: 1, &amp;#39;the_geom&amp;#39;: None, &amp;#39;the_geom_webmercator&amp;#39;: None, &amp;#39;calendar_year&amp;#39;: 2021, &amp;#39;quarter&amp;#39;: 3, &amp;#39;last_name&amp;#39;: &amp;#39;Manko Jr&amp;#39;, &amp;#39;first_name&amp;#39;: &amp;#39;Theodore&amp;#39;, &amp;#39;title&amp;#39;: &amp;#39;Detective&amp;#39;, &amp;#39;job_code&amp;#39;: &amp;#39;6A12&amp;#39;, &amp;#39;department_name&amp;#39;: &amp;#39;PPD Police&amp;#39;, &amp;#39;department_number&amp;#39;: &amp;#39;11&amp;#39;, &amp;#39;base_salary&amp;#39;: 85901, &amp;#39;salary_type&amp;#39;: &amp;#39;Salaried&amp;#39;, &amp;#39;overtime_gross_pay_qtd&amp;#39;: 1110.82, &amp;#39;base_gross_pay_qtd&amp;#39;: 23039.1, &amp;#39;longevity_gross_pay_qtd&amp;#39;: 2096.58, &amp;#39;post_separation_gross_pay_qtd&amp;#39;: None, &amp;#39;miscellaneous_gross_pay_qtd&amp;#39;: 7782.08, &amp;#39;employee_category&amp;#39;: &amp;#39;Civil Service&amp;#39;, &amp;#39;compulsory_union_code&amp;#39;: &amp;#39;P&amp;#39;, &amp;#39;termination_month&amp;#39;: None, &amp;#39;termination_year&amp;#39;: None, &amp;#39;public_id&amp;#39;: 5610}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df = pd.DataFrame(data[&amp;#39;rows&amp;#39;])
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# pull this into a pandas dataframe
+df = pd.DataFrame(data[&amp;#39;rows&amp;#39;])
 df.head()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    cartodb_id the_geom  ... termination_year  public_id
 ## 0           1     None  ...              NaN       5610

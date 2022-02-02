@@ -747,11 +747,10 @@ type(data)
 <pre><code>## dict_keys([&#39;rows&#39;, &#39;time&#39;, &#39;fields&#39;, &#39;total_rows&#39;])</code></pre>
 <p>We see that is of type dict with the keys ‘rows’, ‘time’, ‘fields’, and ‘total_rows’. Rows seems relevant to our needs, and we can confirm this by looking at a single observation.</p>
 <pre class="python"><code># rows seem like what we&#39;ll need
-print(data[&#39;rows&#39;][0])
-
-# pull this into a pandas dataframe</code></pre>
+print(data[&#39;rows&#39;][0])</code></pre>
 <pre><code>## {&#39;cartodb_id&#39;: 1, &#39;the_geom&#39;: None, &#39;the_geom_webmercator&#39;: None, &#39;calendar_year&#39;: 2021, &#39;quarter&#39;: 3, &#39;last_name&#39;: &#39;Manko Jr&#39;, &#39;first_name&#39;: &#39;Theodore&#39;, &#39;title&#39;: &#39;Detective&#39;, &#39;job_code&#39;: &#39;6A12&#39;, &#39;department_name&#39;: &#39;PPD Police&#39;, &#39;department_number&#39;: &#39;11&#39;, &#39;base_salary&#39;: 85901, &#39;salary_type&#39;: &#39;Salaried&#39;, &#39;overtime_gross_pay_qtd&#39;: 1110.82, &#39;base_gross_pay_qtd&#39;: 23039.1, &#39;longevity_gross_pay_qtd&#39;: 2096.58, &#39;post_separation_gross_pay_qtd&#39;: None, &#39;miscellaneous_gross_pay_qtd&#39;: 7782.08, &#39;employee_category&#39;: &#39;Civil Service&#39;, &#39;compulsory_union_code&#39;: &#39;P&#39;, &#39;termination_month&#39;: None, &#39;termination_year&#39;: None, &#39;public_id&#39;: 5610}</code></pre>
-<pre class="python"><code>df = pd.DataFrame(data[&#39;rows&#39;])
+<pre class="python"><code># pull this into a pandas dataframe
+df = pd.DataFrame(data[&#39;rows&#39;])
 df.head()</code></pre>
 <pre><code>##    cartodb_id the_geom  ... termination_year  public_id
 ## 0           1     None  ...              NaN       5610
