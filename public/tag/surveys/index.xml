@@ -50,7 +50,7 @@ library(ggridges)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;simulate-data&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Simulate Data&lt;/h2&gt;
 &lt;p&gt;To start, let’s create a dataset of 100 ‘true’ levels of the underlying trait we are interested in measuring.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1234)
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1359)
 N = 100            # let&amp;#39;s say we had 100 respondents
 
 # each respondent has a &amp;#39;true&amp;#39; score on the latent variable we are measuring
@@ -109,12 +109,12 @@ dat |&amp;gt;
   # since they are alphanumeric, the default sort would 
   # be item1, item10, item11, item12, item13, item2, item3...
   scale_y_discrete(limits = items)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Picking joint bandwidth of 0.272&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Picking joint bandwidth of 0.323&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/post/visualizing-survey-response-distributions/index.en_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;interpeting-the-results&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Interpeting the results&lt;/h2&gt;
-&lt;p&gt;From the ridgeplot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 10, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (items 5 and 9 for instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.&lt;/p&gt;
+&lt;p&gt;From the ridge plot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 11, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (item 7 instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;font color=&#34;grey&#34;&gt; Originally posted: July 5, 2022&lt;/font&gt;&lt;/p&gt;
 &lt;/div&gt;

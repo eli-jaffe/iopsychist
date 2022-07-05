@@ -732,7 +732,7 @@ library(ggridges)</code></pre>
 <div id="simulate-data" class="section level2">
 <h2>Simulate Data</h2>
 <p>To start, let’s create a dataset of 100 ‘true’ levels of the underlying trait we are interested in measuring.</p>
-<pre class="r"><code>set.seed(1234)
+<pre class="r"><code>set.seed(1359)
 N = 100            # let&#39;s say we had 100 respondents
 
 # each respondent has a &#39;true&#39; score on the latent variable we are measuring
@@ -791,12 +791,12 @@ dat |&gt;
   # since they are alphanumeric, the default sort would 
   # be item1, item10, item11, item12, item13, item2, item3...
   scale_y_discrete(limits = items)</code></pre>
-<pre><code>## Picking joint bandwidth of 0.272</code></pre>
+<pre><code>## Picking joint bandwidth of 0.323</code></pre>
 <p><img src="https://iopsychist.netlify.app/post/visualizing-survey-response-distributions/index.en_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="interpeting-the-results" class="section level2">
 <h2>Interpeting the results</h2>
-<p>From the ridgeplot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 10, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (items 5 and 9 for instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.</p>
+<p>From the ridge plot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 11, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (item 7 instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.</p>
 <p><br>
 <font color="grey"> Originally posted: July 5, 2022</font></p>
 </div>
