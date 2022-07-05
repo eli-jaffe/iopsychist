@@ -230,6 +230,8 @@ dat |&amp;gt;
 &lt;div id=&#34;interpeting-the-results&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Interpeting the results&lt;/h2&gt;
 &lt;p&gt;From the ridgeplot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 10, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (items 5 and 9 for instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;font color=&#34;grey&#34;&gt; Originally posted: July 5, 2022&lt;/font&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -243,6 +245,66 @@ dat |&amp;gt;
 &lt;script src=&#34;https://iopsychist.netlify.app/post/tutorial-pay-equity-analysis-part-2/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
+&lt;div id=&#34;coming-soon&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Coming Soon&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;overview&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Overview&lt;/h1&gt;
+&lt;p&gt;This is part 2 of the Pay Equity Analysis. In part 1, we gathered the dataset we will be using which contains pay information on City of Philadelphia employees. In part 2 we will conduct the actual pay equity analysis. The goal is to present an example of how a pay equity analysis may be conducted that can be used in your organization. The tutorial consists of two main phases:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Data Collection and Cleaning&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;This step uses Python for scraping the data from the web and collecting it into a workable file for analysis. We use a basic method to impute gender identification to give us a more real world example (note: this also limits the accuracy of our analysis. These results should not be interpreted to be an actual representation of pay equity among City of Philadelphia employees). Likely you will have direct access to the necessary data through your organization and this step will be unnecessary. Feel free to skip to the next section if so. However, if you are looking for a working data set to practice on your own, this section may be helpful.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Pay Equity Analysis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;This is likely where you will start within your organization. I walk through two methods for analyzing pay data – Regression as well as Classification and Regression Tree (CART) modeling. The analysis has been conducted using R.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Setup
+
+#load packages
+library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.6     ✓ dplyr   1.0.8
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;dplyr&amp;#39; was built under R version 4.1.2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# read in the data
+mydata &amp;lt;- read_csv(&amp;#39;MVR_preprocessed_data.csv&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Missing column names filled in: &amp;#39;X1&amp;#39; [1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   X1 = col_double(),
+##   last_name = col_character(),
+##   first_name = col_character(),
+##   title = col_character(),
+##   job_code = col_character(),
+##   department_name = col_character(),
+##   department_number = col_double(),
+##   base_salary = col_double(),
+##   likely_male = col_double(),
+##   likely_female = col_double(),
+##   jobClassCode = col_character(),
+##   jobClassTitle = col_character(),
+##   payRange = col_character(),
+##   jobClassSalaryMin = col_double(),
+##   jobClassSalaryMax = col_double(),
+##   unionCode = col_character(),
+##   flsaCode = col_character(),
+##   effectiveDate = col_date(format = &amp;quot;&amp;quot;),
+##   family = col_double()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;font color=&#34;grey&#34;&gt; Originally posted: January 18, 2022&lt;/font&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
