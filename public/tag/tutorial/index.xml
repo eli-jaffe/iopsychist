@@ -22,18 +22,20 @@
 
 
 &lt;p&gt;For a recent project, I worked with an organization to run their semi-annual engagement survey. The survey was divided into six sections, focusing on themes such as ‘My Job’, ‘Trust in Leadership’, and ‘Compensation and Benefits’. An section of particular interest to the head of HR was the ‘My Manager’ section. In this section, employees responded to 13 questions on a 5 point scale:&lt;/p&gt;
-&lt;p&gt;My manager communicates clear goals for our team.
-My manager ensures that I am well-informed about issues that affect my work.
-My manager supports my professional growth and development.
-My manager has had a meaningful discussion with me about my career development in the past six months.
-My manager gives actionable feedback on a regular basis.
-My manager provides the autonomy I need to do my job.
-The actions of my manager show they value the perspective I bring to the team, even if it is different from their own.
-My manager does a good job in focusing our team on the most important work
-My manager does an effective job at helping me and my teammates adapt to changes affecting our department.
-My manager effectively collaborates across departments.
-I would consider my manager to be an effective decision maker.
-My manager holds the team accountable for demonstrating [Company]’s values while driving results.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;My manager communicates clear goals for our team.&lt;/li&gt;
+&lt;li&gt;My manager ensures that I am well-informed about issues that affect my work.&lt;/li&gt;
+&lt;li&gt;My manager supports my professional growth and development.&lt;/li&gt;
+&lt;li&gt;My manager has had a meaningful discussion with me about my career development in the past six months.&lt;/li&gt;
+&lt;li&gt;My manager gives actionable feedback on a regular basis.&lt;/li&gt;
+&lt;li&gt;My manager provides the autonomy I need to do my job.&lt;/li&gt;
+&lt;li&gt;The actions of my manager show they value the perspective I bring to the team, even if it is different from their own.&lt;/li&gt;
+&lt;li&gt;My manager does a good job in focusing our team on the most important work&lt;/li&gt;
+&lt;li&gt;My manager does an effective job at helping me and my teammates adapt to changes affecting our department.&lt;/li&gt;
+&lt;li&gt;My manager effectively collaborates across departments.&lt;/li&gt;
+&lt;li&gt;I would consider my manager to be an effective decision maker.&lt;/li&gt;
+&lt;li&gt;My manager holds the team accountable for demonstrating [Company]’s values while driving results.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Response options were ‘Strongly Disagree’, ‘Disagree’, ‘Neutral’, ‘Agree’, and ‘Strongly Agree’&lt;/p&gt;
 &lt;p&gt;With survey data, especially in industry, it is often helpful to understand the response distributions to each questions. Luckily, the R package ggridges can help us do so quickly and easily.&lt;/p&gt;
 &lt;p&gt;Since the actual data is confidential, I will simulate a response pattern and show how
