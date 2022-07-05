@@ -136,7 +136,7 @@ The variance of the distribution is $\sigma^{2}$.
 &lt;script src=&#34;https://iopsychist.netlify.app/post/visualizing-survey-response-distributions/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;I recently supported an organization with running their annual engagement survey. The survey was divided into six sections, focusing on themes such as ‘My Job’, ‘Trust in Leadership’, and ‘Compensation and Benefits’. An section of particular interest to the head of HR was the ‘My Manager’ section. In this section, employees responded to 13 questions on a 5 point scale:&lt;/p&gt;
+&lt;p&gt;I recently supported an organization with running their annual engagement survey. The survey was divided into six sections, focusing on themes such as ‘My Job’, ‘Trust in Leadership’, and ‘Compensation and Benefits’. A section of particular interest to the head of HR was the ‘My Manager’ section. In this section, employees responded to 13 questions on a 5 point scale:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;My manager communicates clear goals for our team.&lt;/li&gt;
 &lt;li&gt;My manager ensures that I am well-informed about issues that affect my work.&lt;/li&gt;
@@ -230,6 +230,7 @@ dat |&amp;gt;
 &lt;div id=&#34;interpeting-the-results&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Interpeting the results&lt;/h2&gt;
 &lt;p&gt;From the ridge plot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 11, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (item 7, for instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.&lt;/p&gt;
+&lt;p&gt;The distributions plotted above are fairly uniform due to how we simulated the data but even still there are some differences. Often times there will be more evident differences in means, distributions, and clusters of items that help drive further insight. Just a few extra lines of code will help you add value for your stakeholders.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;font color=&#34;grey&#34;&gt; Originally posted: July 5, 2022&lt;/font&gt;&lt;/p&gt;
 &lt;/div&gt;
