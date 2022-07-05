@@ -777,7 +777,7 @@ dat &lt;- dat |&gt;
 </div>
 <div id="plot-the-data" class="section level2">
 <h2>Plot the data</h2>
-<p>Finally, we can plot our item response distributions to better understand our workforce. The ggridges package extends ggplot and helps us create a stacked graph of the density of responses to each item. We can use this to quickly visualize and compare each item.</p>
+<p>Finally, we can plot our item response distributions to better understand our results. The ggridges package extends ggplot and helps us create a stacked graph of the density of responses to each item. We can use this to quickly visualize and compare each item.</p>
 <pre class="r"><code># create ridgeline density plot (uses ggridges packages)
 dat |&gt;
   # we pivot longer so we can use item# as Y and Fill value
@@ -796,7 +796,7 @@ dat |&gt;
 </div>
 <div id="interpeting-the-results" class="section level2">
 <h2>Interpeting the results</h2>
-<p>From the ridge plot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 11, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (item 7 instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.</p>
+<p>From the ridge plot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 11, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (item 7, for instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.</p>
 <p><br>
 <font color="grey"> Originally posted: July 5, 2022</font></p>
 </div>
