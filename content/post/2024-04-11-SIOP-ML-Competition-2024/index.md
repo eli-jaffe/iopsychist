@@ -44,7 +44,7 @@ Our foundational skills in analyzing human behavior and organizational dynamics 
 #### Sharing the Knowledge
 In the spirit of collaboration and knowledge-sharing, I have made my code available on GitHub. This repository not only contains the scripts used in the competition but also serves as a resource for those interested in integrating Generative AI into their I/O Psychology workflows.
 
-[Check out my GitHub repository for the competition code](https://github.com/YourGitHubProfile/SIOP2024_ML_Competition_Code)
+[Check out my GitHub repository for the competition code](https://github.com/eli-jaffe/SIOP-ML-Competition-2024)
 
 In conclusion, the SIOP 2024 Machine Learning Competition was not just a contest but a learning journey that highlighted the symbiotic relationship between I/O Psychology and Generative AI. As we move forward, embracing these advanced technologies will undoubtedly lead to more innovative, efficient, and effective outcomes in our field.
 
