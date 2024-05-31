@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>eli jaffe | IOPsychist</title>
+    <link>https://iopsychist.netlify.app/author/eli-jaffe/</link>
+      <atom:link href="https://iopsychist.netlify.app/author/eli-jaffe/index.xml" rel="self" type="application/rss+xml" />
+    <description>eli jaffe</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Mon, 11 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://iopsychist.netlify.app/media/sharing.png</url>
+      <title>eli jaffe</title>
+      <link>https://iopsychist.netlify.app/author/eli-jaffe/</link>
+    </image>
+    
+    <item>
+      <title>Recap - The 11th Annual Conference on Human Capital Innovation in Technology &amp; Analytics</title>
+      <link>https://iopsychist.netlify.app/slides/hcita2022/</link>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/slides/hcita2022/</guid>
+      <description>
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/hcita_2022_1.jpeg&#34;
+  &gt;
+
+&lt;hr&gt;
+
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/hcita_2022_2.jpeg&#34;
+  &gt;
+
+&lt;hr&gt;
+
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/hcita_2022_3.jpeg&#34;
+  &gt;
+
+&lt;hr&gt;
+
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/hcita_2022_4.jpeg&#34;
+  &gt;
+
+&lt;hr&gt;
+
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/hcita_2022_5.jpeg&#34;
+  &gt;
+
+&lt;hr&gt;
+
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/hcita_2022_2.jpeg&#34;
+  &gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

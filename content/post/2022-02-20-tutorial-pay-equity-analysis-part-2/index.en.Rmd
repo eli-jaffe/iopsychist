@@ -1,0 +1,51 @@
+---
+title: 'Tutorial: Pay Equity Analysis [Part 2]'
+author: R package build
+date: '2022-02-20'
+slug: tutorial-pay-equity-analysis-part-2
+categories:
+  - People Analytics
+tags:
+  - R
+  - Python
+  - Compensation
+  - DEI
+  - tutorial
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-02-20T16:31:20-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+# Coming Soon
+
+
+# Overview
+This is part 2 of the Pay Equity Analysis. In part 1, we gathered the dataset we will be using which contains pay information on City of Philadelphia employees. In part 2  we will conduct the actual pay equity analysis. The goal is to present an example of how a pay equity analysis may be conducted that can be used in your organization. The tutorial consists of two main phases:  
+
+1. Data Collection and Cleaning
+ - This step uses Python for scraping the data from the web and collecting it into a workable file for analysis. We use a basic method to impute gender identification to give us a more real world example (note: this also limits the accuracy of our analysis. These results should not be interpreted to be an actual representation of pay equity among City of Philadelphia employees). Likely you will have direct access to the necessary data through your organization and this step will be unnecessary. Feel free to skip to the next section if so. However, if you are looking for a working data set to practice on your own, this section may be helpful.
+
+2. Pay Equity Analysis
+ - This is likely where you will start within your organization. I walk through two methods for analyzing pay data -- Regression as well as Classification and Regression Tree (CART) modeling. The analysis has been conducted using R. 
+
+```{r setup}
+# Setup
+
+#load packages
+library(tidyverse)
+
+# read in the data
+mydata <- read_csv('MVR_preprocessed_data.csv')
+
+```
+
+<br>
+<font color="grey"> Originally posted: January 18, 2022</font>

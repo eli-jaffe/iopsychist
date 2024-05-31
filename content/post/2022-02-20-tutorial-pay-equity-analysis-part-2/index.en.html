@@ -1,0 +1,88 @@
+---
+title: 'Tutorial: Pay Equity Analysis [Part 2]'
+author: R package build
+date: '2022-02-20'
+slug: tutorial-pay-equity-analysis-part-2
+categories:
+  - People Analytics
+tags:
+  - R
+  - Python
+  - Compensation
+  - DEI
+  - tutorial
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-02-20T16:31:20-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="coming-soon" class="section level1">
+<h1>Coming Soon</h1>
+</div>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>This is part 2 of the Pay Equity Analysis. In part 1, we gathered the dataset we will be using which contains pay information on City of Philadelphia employees. In part 2 we will conduct the actual pay equity analysis. The goal is to present an example of how a pay equity analysis may be conducted that can be used in your organization. The tutorial consists of two main phases:</p>
+<ol style="list-style-type: decimal">
+<li>Data Collection and Cleaning</li>
+</ol>
+<ul>
+<li>This step uses Python for scraping the data from the web and collecting it into a workable file for analysis. We use a basic method to impute gender identification to give us a more real world example (note: this also limits the accuracy of our analysis. These results should not be interpreted to be an actual representation of pay equity among City of Philadelphia employees). Likely you will have direct access to the necessary data through your organization and this step will be unnecessary. Feel free to skip to the next section if so. However, if you are looking for a working data set to practice on your own, this section may be helpful.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Pay Equity Analysis</li>
+</ol>
+<ul>
+<li>This is likely where you will start within your organization. I walk through two methods for analyzing pay data – Regression as well as Classification and Regression Tree (CART) modeling. The analysis has been conducted using R.</li>
+</ul>
+<pre class="r"><code># Setup
+
+#load packages
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.6     ✓ dplyr   1.0.8
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.1.2</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code># read in the data
+mydata &lt;- read_csv(&#39;MVR_preprocessed_data.csv&#39;)</code></pre>
+<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   X1 = col_double(),
+##   last_name = col_character(),
+##   first_name = col_character(),
+##   title = col_character(),
+##   job_code = col_character(),
+##   department_name = col_character(),
+##   department_number = col_double(),
+##   base_salary = col_double(),
+##   likely_male = col_double(),
+##   likely_female = col_double(),
+##   jobClassCode = col_character(),
+##   jobClassTitle = col_character(),
+##   payRange = col_character(),
+##   jobClassSalaryMin = col_double(),
+##   jobClassSalaryMax = col_double(),
+##   unionCode = col_character(),
+##   flsaCode = col_character(),
+##   effectiveDate = col_date(format = &quot;&quot;),
+##   family = col_double()
+## )</code></pre>
+<p><br>
+<font color="grey"> Originally posted: January 18, 2022</font></p>
+</div>

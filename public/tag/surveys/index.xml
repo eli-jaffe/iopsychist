@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>surveys | IOPsychist</title>
+    <link>https://iopsychist.netlify.app/tag/surveys/</link>
+      <atom:link href="https://iopsychist.netlify.app/tag/surveys/index.xml" rel="self" type="application/rss+xml" />
+    <description>surveys</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024</copyright><lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://iopsychist.netlify.app/media/sharing.png</url>
+      <title>surveys</title>
+      <link>https://iopsychist.netlify.app/tag/surveys/</link>
+    </image>
+    
+    <item>
+      <title>Visualizing Survey Response Distributions</title>
+      <link>https://iopsychist.netlify.app/post/visualizing-survey-response-distributions/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/visualizing-survey-response-distributions/</guid>
+      <description>
+&lt;script src=&#34;https://iopsychist.netlify.app/post/visualizing-survey-response-distributions/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I recently supported an organization with running their annual engagement survey. The survey was divided into six sections, focusing on themes such as ‘My Job’, ‘Trust in Leadership’, and ‘Compensation and Benefits’. A section of particular interest to the head of HR was the ‘My Manager’ section. In this section, employees responded to 13 questions on a 5 point scale:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;My manager communicates clear goals for our team.&lt;/li&gt;
+&lt;li&gt;My manager ensures that I am well-informed about issues that affect my work.&lt;/li&gt;
+&lt;li&gt;My manager supports my professional growth and development.&lt;/li&gt;
+&lt;li&gt;My manager has had a meaningful discussion with me about my career development in the past six months.&lt;/li&gt;
+&lt;li&gt;My manager gives actionable feedback on a regular basis.&lt;/li&gt;
+&lt;li&gt;My manager provides the autonomy I need to do my job.&lt;/li&gt;
+&lt;li&gt;The actions of my manager show they value the perspective I bring to the team, even if it is different from their own.&lt;/li&gt;
+&lt;li&gt;My manager does a good job in focusing our team on the most important work&lt;/li&gt;
+&lt;li&gt;My manager does an effective job at helping me and my teammates adapt to changes affecting our department.&lt;/li&gt;
+&lt;li&gt;My manager effectively collaborates across departments.&lt;/li&gt;
+&lt;li&gt;I would consider my manager to be an effective decision maker.&lt;/li&gt;
+&lt;li&gt;My manager holds the team accountable for demonstrating [Company]’s values while driving results.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Response options were ‘Strongly Disagree’, ‘Disagree’, ‘Neutral’, ‘Agree’, and ‘Strongly Agree’&lt;/p&gt;
+&lt;p&gt;With survey data, especially in industry, it is often helpful to understand the response distributions to each questions. Luckily, the R package ggridges can help us do so quickly and easily.&lt;/p&gt;
+&lt;p&gt;Since the actual data is confidential, I will simulate a response pattern and show how
+item distributions can be visualized using ggplot and ggridges.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# import required packages
+library(readxl)
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(ggplot2)
+library(ggridges)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;simulate-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Simulate Data&lt;/h2&gt;
+&lt;p&gt;To start, let’s create a dataset of 100 ‘true’ levels of the underlying trait we are interested in measuring.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1359)
+N = 100            # let&amp;#39;s say we had 100 respondents
+
+# each respondent has a &amp;#39;true&amp;#39; score on the latent variable we are measuring
+# let&amp;#39;s model that here, assuming a normal distribution
+latent = rnorm(N, mean = 0, sd = 1)
+
+# each measurement will have a slight error on top of the true score
+# define that error for each of the 13 items we will generate
+sds &amp;lt;- runif(n=13, min=0, max=1.5)
+
+
+# initialize our items and vals list
+items = c()
+vals &amp;lt;- list()
+
+# create item responses for each 13 items
+for (i in seq(length(sds))) {
+  items &amp;lt;- append(items, paste0(&amp;#39;item&amp;#39;, i))
+  scores &amp;lt;- latent + rnorm(N, mean=0, sd=sds[i])
+  vals[i] &amp;lt;- list(scores)
+}
+
+# name the list and cast to dataframe
+names(vals) &amp;lt;- items
+dat &amp;lt;- as.data.frame(vals)  # we now have a dataframe of each employee&amp;#39;s score on each item&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We now have the data of each employee’s true score on the measure.&lt;/p&gt;
+&lt;p&gt;While each employee has a ‘true’ level on the latent variable, in reality they also have a ‘response’ level they would indicate based on the question design. For example, Sam is experiencing moderate-high levels of burnout - their true burnout level is 7 out of 10. Sam reads a survey question aimed at identifying burnout: “I feel burnout out from the demands of my job” with 5 response options ranging from Strongly Disagree to Agree. Sam selects ‘Agree’. Another employee, Jordan, is not as burned out - their true level is a 5 out of 10. Jordan reads the same question and thinks, “well, I do &lt;em&gt;feel&lt;/em&gt; burnout from the demands of my job. It’s mostly manageable but I still agree with the statement, so I will indicate ‘Agree’”. Both Sam and Jordan responded to the item with the same response, even though their ‘true’ score, the level of burnout they are experiencing, is different.&lt;/p&gt;
+&lt;p&gt;We can model this interaction by defining interval buckets to categorize how an employee would
+respond based on their true score. For now, we will assume all items are positively scored (i.e the higher the response score, the higher the underlying True score). In most companies that use survey questions measured on the scale described previously, the majority of employees will select ‘Agree’ or ‘Strongly Agree’. Those that do not will tend to select the neutral option, and the very few employees remaining will indicate some level of disagreement. Therefore, we will define our response intervals as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;if an employee’s true score is very very low (2.5 or more standard deviations below the mean),they will respond with ‘Strongly Disagree’.&lt;/li&gt;
+&lt;li&gt;For those employees 2.5-2 deviations below the mean, they will select ‘Disagree’&lt;/li&gt;
+&lt;li&gt;Employees who are 2 to -0.5 deviations below the mean indicate ‘Neutral’&lt;/li&gt;
+&lt;li&gt;Employees 0.5 below the mean to 1 deviation above will select ‘Agree’.&lt;/li&gt;
+&lt;li&gt;The rest will select ‘Strongly Agree’&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We can define these interval breakpoints in a list &lt;code&gt;c(-Inf, -2.5, -2, -.5, 1, Inf)&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;##### generate latent responses to items
+# apply findInterval function to convert latent scores to ordered categories
+dat &amp;lt;- dat |&amp;gt;
+  mutate(across(starts_with(&amp;#39;item&amp;#39;), ~ findInterval(.x, vec = c(-Inf, -2.5, -2, -.5, 1, Inf))))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plot-the-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Plot the data&lt;/h2&gt;
+&lt;p&gt;Finally, we can plot our item response distributions to better understand our results. The ggridges package extends ggplot and helps us create a stacked graph of the density of responses to each item. We can use this to quickly visualize and compare each item.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# create ridgeline density plot (uses ggridges packages)
+dat |&amp;gt;
+  # we pivot longer so we can use item# as Y and Fill value
+  pivot_longer(where(is.numeric), names_to = &amp;#39;Question&amp;#39;, values_to = &amp;#39;Score&amp;#39;) |&amp;gt;
+  ggplot(aes(x=Score, y = Question, fill = Question)) +
+  # call the geom_density_ridge() function
+  geom_density_ridges() +
+  theme_ridges() +
+  theme(legend.position = &amp;quot;none&amp;quot;) +
+  # use the limit function to properly order our items
+  # since they are alphanumeric, the default sort would 
+  # be item1, item10, item11, item12, item13, item2, item3...
+  scale_y_discrete(limits = items)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Picking joint bandwidth of 0.323&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/post/visualizing-survey-response-distributions/index.en_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interpeting-the-results&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Interpeting the results&lt;/h2&gt;
+&lt;p&gt;From the ridge plot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 11, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (item 7, for instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.&lt;/p&gt;
+&lt;p&gt;The distributions plotted above are fairly uniform due to how we simulated the data but even still there are some differences. Often times there will be more evident differences in means, distributions, and clusters of items that help drive further insight. Just a few extra lines of code will help you add value for your stakeholders.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;font color=&#34;grey&#34;&gt; Originally posted: July 5, 2022&lt;/font&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

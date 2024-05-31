@@ -1,0 +1,142 @@
+---
+title: Visualizing Survey Response Distributions
+author: R package build
+date: '2022-07-05'
+slug: visualizing-survey-response-distributions
+cover: /post/2022-07-05-visualizing-survey-response-distributions
+categories:
+  - People Analytics
+tags:
+  - R
+  - surveys
+  - tutorial
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-07-05T10:35:41-04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: yes
+projects: []
+---
+
+
+I recently supported an organization with running their annual engagement survey. The survey was divided into six sections, focusing on themes such as 'My Job', 'Trust in Leadership', and 'Compensation and Benefits'. A section of particular interest to the head of HR was the 'My Manager' section. In this section, employees responded to 13 questions on a 5 point scale:
+
+* My manager communicates clear goals for our team.
+* My manager ensures that I am well-informed about issues that affect my work.
+* My manager supports my professional growth and development.
+* My manager has had a meaningful discussion with me about my career development in the past six months.
+* My manager gives actionable feedback on a regular basis.
+* My manager provides the autonomy I need to do my job.
+* The actions of my manager show they value the perspective I bring to the team, even if it is different from their own.
+* My manager does a good job in focusing our team on the most important work
+* My manager does an effective job at helping me and my teammates adapt to changes affecting our department.
+* My manager effectively collaborates across departments.
+* I would consider my manager to be an effective decision maker.
+* My manager holds the team accountable for demonstrating [Company]'s values while driving results.
+
+Response options were 'Strongly Disagree', 'Disagree', 'Neutral', 'Agree', and 'Strongly Agree'
+
+
+With survey data, especially in industry, it is often helpful to understand the response distributions to each questions. Luckily, the R package ggridges can help us do so quickly and easily.
+
+Since the actual data is confidential, I will simulate a response pattern and show how 
+item distributions can be visualized using ggplot and ggridges.
+
+
+```{r message = FALSE, warning=FALSE}
+# import required packages
+library(dplyr)
+library(ggplot2)
+library(ggridges)
+```
+
+## Simulate Data
+
+To start, let's create a dataset of 100 'true' levels of the underlying trait we are interested in measuring.
+
+```{r}
+set.seed(1359)
+N = 100            # let's say we had 100 respondents
+
+# each respondent has a 'true' score on the latent variable we are measuring
+# let's model that here, assuming a normal distribution
+latent = rnorm(N, mean = 0, sd = 1)
+
+# each measurement will have a slight error on top of the true score
+# define that error for each of the 13 items we will generate
+sds <- runif(n=13, min=0, max=1.5)
+
+
+# initialize our items and vals list
+items = c()
+vals <- list()
+
+# create item responses for each 13 items
+for (i in seq(length(sds))) {
+  items <- append(items, paste0('item', i))
+  scores <- latent + rnorm(N, mean=0, sd=sds[i])
+  vals[i] <- list(scores)
+}
+
+# name the list and cast to dataframe
+names(vals) <- items
+dat <- as.data.frame(vals)  # we now have a dataframe of each employee's score on each item
+
+
+```
+
+We now have the data of each employee's true score on the measure.
+
+While each employee has a 'true' level on the latent variable, in reality they also have a 'response' level they would indicate based on the question design. For example, Sam is experiencing moderate-high levels of burnout - their true burnout level is 7 out of 10. Sam reads a survey question aimed at identifying burnout: "I feel burnout out from the demands of my job" with 5 response options ranging from Strongly Disagree to Agree. Sam selects 'Agree'. Another employee, Jordan, is not as burned out - their true level is a 5 out of 10. Jordan reads the same question and thinks, "well, I do *feel* burnout from the demands of my job. It's mostly manageable but I still agree with the statement, so I will indicate 'Agree'". Both Sam and Jordan responded to the item with the same response, even though their 'true' score, the level of burnout they are experiencing, is different.
+
+We can model this interaction by defining interval buckets to categorize how an employee would 
+respond based on their true score. For now, we will assume all items are positively scored (i.e the higher the response score, the higher the underlying True score). In most companies that use survey questions measured on the scale described previously, the majority of employees will select 'Agree' or 'Strongly Agree'. Those that do not will tend to select the neutral option, and the very few employees remaining will indicate some level of disagreement. Therefore, we will define our response intervals as follows:
+
+* if an employee's true score is very very low (2.5 or more standard deviations below the mean),they will respond with 'Strongly Disagree'.
+* For those employees 2.5-2 deviations below the mean, they will select 'Disagree'
+* Employees who are 2 to -0.5 deviations below the mean indicate 'Neutral'
+* Employees 0.5 below the mean to 1 deviation above will select 'Agree'.
+* The rest will select 'Strongly Agree'
+ 
+We can define these interval breakpoints in a list `c(-Inf, -2.5, -2, -.5, 1, Inf)`
+
+```{r}
+##### generate latent responses to items
+# apply findInterval function to convert latent scores to ordered categories
+dat <- dat |>
+  mutate(across(starts_with('item'), ~ findInterval(.x, vec = c(-Inf, -2.5, -2, -.5, 1, Inf))))
+```
+
+## Plot the data
+
+Finally, we can plot our item response distributions to better understand our results. The ggridges package extends ggplot and helps us create a stacked graph of the density of responses to each item. We can use this to quickly visualize and compare each item.
+
+```{r fig.show='show'}
+# create ridgeline density plot (uses ggridges packages)
+dat |>
+  # we pivot longer so we can use item# as Y and Fill value
+  pivot_longer(where(is.numeric), names_to = 'Question', values_to = 'Score') |>
+  ggplot(aes(x=Score, y = Question, fill = Question)) +
+  # call the geom_density_ridge() function
+  geom_density_ridges() +
+  theme_ridges() +
+  theme(legend.position = "none") +
+  # use the limit function to properly order our items
+  # since they are alphanumeric, the default sort would 
+  # be item1, item10, item11, item12, item13, item2, item3...
+  scale_y_discrete(limits = items)
+  
+```
+
+## Interpeting the results
+
+From the ridge plot, we can quickly get a sense of how the survey items functioned. For the most part, responses followed the pattern we would expect. However, there are a few items where we seem to observe higher levels of disagreement than other items (item 11, for example). This could be a hotspot we need to investigate further. Additionally, a few items appear to be more positively skewed (item 7, for instance) - perhaps we should revise these items for the next iteration to allow us to gain deeper insights. If we were to run further analyses using engagement survey responses, such as regression, it may be useful to rescale responses to better fit the assumptions as well.
+
+The distributions plotted above are fairly uniform due to how we simulated the data but even still there are some differences. Often times there will be more evident differences in means, distributions, and clusters of items that help drive further insight. Just a few extra lines of code will help you add value for your stakeholders.
+
+<br>
+<font color="grey"> Originally posted: July 5, 2022</font>

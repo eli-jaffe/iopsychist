@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python | IOPsychist</title>
+    <link>https://iopsychist.netlify.app/tag/python/</link>
+      <atom:link href="https://iopsychist.netlify.app/tag/python/index.xml" rel="self" type="application/rss+xml" />
+    <description>Python</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024</copyright><lastBuildDate>Sun, 20 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://iopsychist.netlify.app/media/sharing.png</url>
+      <title>Python</title>
+      <link>https://iopsychist.netlify.app/tag/python/</link>
+    </image>
+    
+    <item>
+      <title>Tutorial: Pay Equity Analysis [Part 2]</title>
+      <link>https://iopsychist.netlify.app/post/tutorial-pay-equity-analysis-part-2/</link>
+      <pubDate>Sun, 20 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/tutorial-pay-equity-analysis-part-2/</guid>
+      <description>
+&lt;script src=&#34;https://iopsychist.netlify.app/post/tutorial-pay-equity-analysis-part-2/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;coming-soon&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Coming Soon&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;overview&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Overview&lt;/h1&gt;
+&lt;p&gt;This is part 2 of the Pay Equity Analysis. In part 1, we gathered the dataset we will be using which contains pay information on City of Philadelphia employees. In part 2 we will conduct the actual pay equity analysis. The goal is to present an example of how a pay equity analysis may be conducted that can be used in your organization. The tutorial consists of two main phases:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Data Collection and Cleaning&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;This step uses Python for scraping the data from the web and collecting it into a workable file for analysis. We use a basic method to impute gender identification to give us a more real world example (note: this also limits the accuracy of our analysis. These results should not be interpreted to be an actual representation of pay equity among City of Philadelphia employees). Likely you will have direct access to the necessary data through your organization and this step will be unnecessary. Feel free to skip to the next section if so. However, if you are looking for a working data set to practice on your own, this section may be helpful.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Pay Equity Analysis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;This is likely where you will start within your organization. I walk through two methods for analyzing pay data – Regression as well as Classification and Regression Tree (CART) modeling. The analysis has been conducted using R.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Setup
+
+#load packages
+library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.6     ✓ dplyr   1.0.8
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;dplyr&amp;#39; was built under R version 4.1.2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# read in the data
+mydata &amp;lt;- read_csv(&amp;#39;MVR_preprocessed_data.csv&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Missing column names filled in: &amp;#39;X1&amp;#39; [1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   X1 = col_double(),
+##   last_name = col_character(),
+##   first_name = col_character(),
+##   title = col_character(),
+##   job_code = col_character(),
+##   department_name = col_character(),
+##   department_number = col_double(),
+##   base_salary = col_double(),
+##   likely_male = col_double(),
+##   likely_female = col_double(),
+##   jobClassCode = col_character(),
+##   jobClassTitle = col_character(),
+##   payRange = col_character(),
+##   jobClassSalaryMin = col_double(),
+##   jobClassSalaryMax = col_double(),
+##   unionCode = col_character(),
+##   flsaCode = col_character(),
+##   effectiveDate = col_date(format = &amp;quot;&amp;quot;),
+##   family = col_double()
+## )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;font color=&#34;grey&#34;&gt; Originally posted: January 18, 2022&lt;/font&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tutorial: Pay Equity Analysis [Part 1]</title>
+      <link>https://iopsychist.netlify.app/post/tutorial-pay-equity-analysis-part-1/</link>
+      <pubDate>Mon, 17 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/tutorial-pay-equity-analysis-part-1/</guid>
+      <description>
+&lt;script src=&#34;https://iopsychist.netlify.app/post/tutorial-pay-equity-analysis-part-1/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;overview&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Overview&lt;/h1&gt;
+&lt;p&gt;In this tutorial, we will conduct a pay equity analysis on publicly available pay information for the City of Philadelphia. The goal is to present an example of how a pay equity analysis may be conducted that can be used in your organization. The tutorial consists of two main phases:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Data Collection and Cleaning&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;This step uses Python for scraping the data from the web and collecting it into a workable file for analysis. We use a basic method to impute gender identification to give us a more real world example (note: this also limits the accuracy of our analysis. These results should not be interpreted to be an actual representation of pay equity among City of Philadelphia employees). Likely you will have direct access to the necessary data through your organization and this step will be unnecessary. Feel free to skip to the next section if so. However, if you are looking for a working data set to practice on your own, this section may be helpful.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Pay Equity Analysis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;This is likely where you will start within your organization. I walk through two methods for analyzing pay data – Regression as well as Classification and Regression Tree (CART) modeling. The analysis has been conducted using R.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-1---data-collecetion-and-cleaning&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Part 1 - Data Collecetion and Cleaning&lt;/h1&gt;
+&lt;div id=&#34;employee-salary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Employee Salary&lt;/h2&gt;
+&lt;p&gt;The City of Philadelphia participates in an &lt;a href=&#34;opendataphilly.org&#34;&gt;Open Data program&lt;/a&gt; where they publish many different data sets related to the Philadelphia region, including information on pay for public employees. Using this resource, we can pull in the bulk of the data necessary to conduct a pay equity analysis. To begin with, let’s import the necessary Python packages we will need. On top of the typical data science tools (pandas, numpy, seaborn, etc), we will be using &lt;code&gt;requests&lt;/code&gt; for our API calls, &lt;code&gt;json&lt;/code&gt; for parsing the data we get back, and &lt;code&gt;BeautifulSoup&lt;/code&gt; for web scraping. There are a few auxiliary packages as well–go ahead and load them all so that everything works as intended.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set()
+
+import requests
+import json
+import ast
+from bs4 import BeautifulSoup
+from datetime import datetime&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;On the OpenDataPhilly.org website we can find Employee Earnings data by quarter, which has be provided with API access for us to use. We start by defining the URL to access the data. If you look at the URL, you will see the raw JSON. The requests package gets this JSON data and we next parse the JSON into the variable &lt;code&gt;data&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;URL = &amp;#39;https://phl.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20employee_earnings&amp;#39;
+page = requests.get(URL)
+j_data = page.content
+data = json.loads(j_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s look at the variable &lt;code&gt;data&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# let&amp;#39;s look at the variable data
+type(data)
+
+# we see that is a dict
+# looking at the keys, we see there are &amp;#39;rows&amp;#39;, &amp;#39;time&amp;#39;, &amp;#39;fields&amp;#39;, and &amp;#39;total_rows&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;class &amp;#39;dict&amp;#39;&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;data.keys()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## dict_keys([&amp;#39;rows&amp;#39;, &amp;#39;time&amp;#39;, &amp;#39;fields&amp;#39;, &amp;#39;total_rows&amp;#39;])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We see that is of type dict with the keys ‘rows’, ‘time’, ‘fields’, and ‘total_rows’. Rows seems relevant to our needs, and we can confirm this by looking at a single observation.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# rows seem like what we&amp;#39;ll need
+print(data[&amp;#39;rows&amp;#39;][0])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {&amp;#39;cartodb_id&amp;#39;: 1, &amp;#39;the_geom&amp;#39;: None, &amp;#39;the_geom_webmercator&amp;#39;: None, &amp;#39;calendar_year&amp;#39;: 2021, &amp;#39;quarter&amp;#39;: 3, &amp;#39;last_name&amp;#39;: &amp;#39;Manko Jr&amp;#39;, &amp;#39;first_name&amp;#39;: &amp;#39;Theodore&amp;#39;, &amp;#39;title&amp;#39;: &amp;#39;Detective&amp;#39;, &amp;#39;job_code&amp;#39;: &amp;#39;6A12&amp;#39;, &amp;#39;department_name&amp;#39;: &amp;#39;PPD Police&amp;#39;, &amp;#39;department_number&amp;#39;: &amp;#39;11&amp;#39;, &amp;#39;base_salary&amp;#39;: 85901, &amp;#39;salary_type&amp;#39;: &amp;#39;Salaried&amp;#39;, &amp;#39;overtime_gross_pay_qtd&amp;#39;: 1110.82, &amp;#39;base_gross_pay_qtd&amp;#39;: 23039.1, &amp;#39;longevity_gross_pay_qtd&amp;#39;: 2096.58, &amp;#39;post_separation_gross_pay_qtd&amp;#39;: None, &amp;#39;miscellaneous_gross_pay_qtd&amp;#39;: 7782.08, &amp;#39;employee_category&amp;#39;: &amp;#39;Civil Service&amp;#39;, &amp;#39;compulsory_union_code&amp;#39;: &amp;#39;P&amp;#39;, &amp;#39;termination_month&amp;#39;: None, &amp;#39;termination_year&amp;#39;: None, &amp;#39;public_id&amp;#39;: 5610}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# pull this into a pandas dataframe
+df = pd.DataFrame(data[&amp;#39;rows&amp;#39;])
+df.head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    cartodb_id the_geom  ... termination_year  public_id
+## 0           1     None  ...              NaN       5610
+## 1           2     None  ...              NaN        319
+## 2           3     None  ...              NaN      21446
+## 3           4     None  ...              NaN      29891
+## 4           5     None  ...           2021.0      14611
+## 
+## [5 rows x 23 columns]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Great, we now have the beginning of our data set. Let’s take a look at what we have.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# we have 23 columns and over 316,000 observations
+df.info()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;class &amp;#39;pandas.core.frame.DataFrame&amp;#39;&amp;gt;
+## RangeIndex: 316304 entries, 0 to 316303
+## Data columns (total 23 columns):
+##  #   Column                         Non-Null Count   Dtype  
+## ---  ------                         --------------   -----  
+##  0   cartodb_id                     316304 non-null  int64  
+##  1   the_geom                       0 non-null       object 
+##  2   the_geom_webmercator           0 non-null       object 
+##  3   calendar_year                  316304 non-null  int64  
+##  4   quarter                        316304 non-null  int64  
+##  5   last_name                      316304 non-null  object 
+##  6   first_name                     316304 non-null  object 
+##  7   title                          316304 non-null  object 
+##  8   job_code                       316304 non-null  object 
+##  9   department_name                316304 non-null  object 
+##  10  department_number              316304 non-null  object 
+##  11  base_salary                    300770 non-null  float64
+##  12  salary_type                    316303 non-null  object 
+##  13  overtime_gross_pay_qtd         164753 non-null  float64
+##  14  base_gross_pay_qtd             316304 non-null  float64
+##  15  longevity_gross_pay_qtd        210186 non-null  float64
+##  16  post_separation_gross_pay_qtd  4186 non-null    float64
+##  17  miscellaneous_gross_pay_qtd    316304 non-null  float64
+##  18  employee_category              316304 non-null  object 
+##  19  compulsory_union_code          316303 non-null  object 
+##  20  termination_month              33739 non-null   float64
+##  21  termination_year               33739 non-null   float64
+##  22  public_id                      316304 non-null  int64  
+## dtypes: float64(8), int64(4), object(11)
+## memory usage: 55.5+ MB&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We see there are 23 columns and over 316,000 observations. Our variables are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;cartodb_id&lt;/strong&gt;: an index generated by cartodb (where we must have imported the data from)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;the_geom&lt;/strong&gt; and &lt;strong&gt;the_geom_webmercator&lt;/strong&gt;: geographic inforamtion. Not needed for our analysis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;calendar_year&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;quarter&lt;/strong&gt;: we must have pay info per quarter&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;last_name&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;first_name&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;title&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;job_code&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;department_name&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;department_number&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;base_salary&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;salary_type&lt;/strong&gt; (Salaried or Non-Salaried. We will probably want to explore what the types are and how that affects &lt;code&gt;base_salary&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;overtime_gross_pay_qtd&lt;/strong&gt;: gross overtime pay that quarter&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;base_gross_pay_qtd&lt;/strong&gt;: base salary represented as a quarterly distribution&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;longevtiy_gross_pay_qtd&lt;/strong&gt; (Phila.gov must have some additional pay component reflecting tenure)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;post_separation_gross_pay_qtd&lt;/strong&gt; (it appears Phila.gov will sometimes pay employees that have already left)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;miscellaneous_gross_pay_qtd&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;employee_category&lt;/strong&gt; (what are the categories here?)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;compulsory_union_code&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;termination_month&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;termination_year&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There’s a lot here! The first few columns are identifiers from the database pull which we don’t need to worry about for our analysis. Then we get into year/quarter, employee info including name, title, and department data, and then a bunch of different quarterly pay info. Finally, we have termination date if applicable.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;At this point, I like to save the data to a file on my computer for easy access while I prepare it for analysis. This is not necessary, but ensures that I have the data in case anything happens to the source.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.to_csv(path_or_buf=f&amp;quot;{datetime.now().strftime(&amp;#39;%Y-%m-%d&amp;#39;)}_phila_ee_salary_data.csv&amp;quot;, index=False)
+
+# next time when we want to use this data, we can simply load the dataframe df from the csv file instead
+# If you do so, un-comment the two lines below to continue following along
+ 
+#df = pd.read_csv(&amp;#39;[YOURDATE]_phila_ee_salary_data.csv&amp;#39;)
+#df.reset_index(drop = True, inplace=True)&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It’s a bit overwhelming to take this all in, so let’s pare it down to just what we’ll need. For our analysis, we will only look at salaried employees. The same employee appears multiple times if they’ve worked for more than one quarter, so lets select just the data from Q4 of 2020. We also want to look only at active employees so we will remove those with a termination date. Then, we’ll drop the columns that aren’t relevant for us.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# let&amp;#39;s look at salaried employees only
+df = df[df.salary_type == &amp;#39;Salaried&amp;#39;]
+
+# we have data from more than one quarter. we want just the data from 2020Q4
+df = df[df.calendar_year == 2020] 
+df = df[df.quarter == 4]
+
+# we also want only active employees (i.e. those without a termination month or year)
+# check that all those with a termination month have a termination year (for data integrity purposes)
+
+# drop any employee that has been terminated
+df = df[df.termination_year.isna()]
+
+# let us also drop some columns we know we won&amp;#39;t be using
+drop_cols = [&amp;#39;cartodb_id&amp;#39;,
+             &amp;#39;the_geom&amp;#39;, 
+             &amp;#39;the_geom_webmercator&amp;#39;,
+             &amp;#39;calendar_year&amp;#39;,
+             &amp;#39;quarter&amp;#39;]
+
+df.drop(drop_cols, axis=1, inplace=True)
+
+df.head(20)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##             last_name first_name  ... termination_year public_id
+## 12             Cooney      James  ...              NaN     34345
+## 37             Zucker    Stanley  ...              NaN     24559
+## 52             Labree     Martin  ...              NaN     18078
+## 57             Biello   Patricia  ...              NaN      5019
+## 87              Scott      Karen  ...              NaN     11741
+## 98            O Brien     Eileen  ...              NaN     25831
+## 123           Johnson      Clyde  ...              NaN     24277
+## 152          Krawczyk    Richard  ...              NaN     31965
+## 164             Hatch     Steven  ...              NaN      4863
+## 189            Nieves      Linda  ...              NaN     34948
+## 195          Robinson    Gregory  ...              NaN       980
+## 211          Agozzino   Pasquale  ...              NaN     22378
+## 216          Reynolds     Denise  ...              NaN     30681
+## 229              Mohl      Brian  ...              NaN     11831
+## 233  Glinski-Sullivan      Susan  ...              NaN     28036
+## 273            Cannon    Theresa  ...              NaN     34725
+## 291            Hockel      Peter  ...              NaN     17968
+## 299          Mc Grath    Colleen  ...              NaN     31728
+## 305          Rucci Jr       Adam  ...              NaN     26865
+## 313      Merriweather    Tialynn  ...              NaN     11577
+## 
+## [20 rows x 18 columns]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So far so good! We have a nice data set that we could use to answer a number of questions already. However, it will be more inciteful for pay equity if we can pull in a few additional variables that may impact pay.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;additional-job-information&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Additional Job Information&lt;/h2&gt;
+&lt;p&gt;We now have a &lt;code&gt;df&lt;/code&gt; with employee pay info but we do not know what the relevant job level and ranges are. We can find this on the phila.gov website. After a bit of digging, I found a page with &lt;a href=&#34;https://www.phila.gov/personnel/Specs.html&#34;&gt;job spec info&lt;/a&gt; online. With a tad of more advanced web scraping which is beyond the scope of this tutorial, I was able to pull the details into a json file which I load below. This file can be found in the github repository for the project as well. Follow along the steps below to clean the file you’ve just imported.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: If you follow the link above, you’ll notice there’s a 404 error! When I initially pulled this data in April of 2021, the page was up. However, the Philly webpage must have changed in the meantime. Yet another reason to save a local copy of data acquired through webscraping so that when things change, you don’t have to recreate the wheel.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# I have pulled this into a json file which I open here
+with open(&amp;#39;2021_04_28_phila_master_data_pull.json&amp;#39;) as fh:
+    job_spec_data = json.load(fh)
+    
+# these are the rows we want for this analysis
+data_subset = job_spec_data[12:986]
+
+# we continue to pare down data_subset to just the details we need, in a nice dataframe-like list of dicts
+# select just the relevant details (each data in subset is a key-value pair. We only want the value for each row)
+for i, data in enumerate(data_subset):
+    data_subset[i] = data_subset[i][&amp;#39;jobClassSpecs&amp;#39;]
+
+# this will be the DF we use! job_spec_df
+job_spec_df = pd.DataFrame(data_subset)
+
+# take a look at our work
+job_spec_df.head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   jobClassCode           jobClassTitle payRange  ... flsaCode effectiveDate family
+## 0         1A01  Clerical Assistant (S)     0003  ...       1N      6/2/2017      1
+## 1         1A02        Office Clerk (B)     0004  ...       1N     4/15/2019      1
+## 2         1A03          Office Clerk 2     0006  ...       1N     4/15/2019      1
+## 3         1A04             Clerk 3 (S)     0011  ...       1N     5/31/2013      1
+## 4         1A18               Secretary     0008  ...       1N      3/8/2019      1
+## 
+## [5 rows x 9 columns]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the dataframe &lt;code&gt;job_spec_df&lt;/code&gt; we have the following variables:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;jobClassCode&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;jobClassCode&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;jobClassTitle&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;payRange&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;jobClassSalaryMin&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;jobClassSalaryMax&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;unionCode&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;flsaCode&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;effectiveDate&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;family&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The final step is to cast the data objects to the types we expect them to be.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# cast the dtypes to the correct dtype
+job_spec_df[&amp;#39;effectiveDate&amp;#39;] = pd.to_datetime(job_spec_df[&amp;#39;effectiveDate&amp;#39;])
+job_spec_df[&amp;#39;family&amp;#39;] = job_spec_df[&amp;#39;family&amp;#39;].astype(str)
+job_spec_df[&amp;#39;jobClassSalaryMin&amp;#39;] = job_spec_df[&amp;#39;jobClassSalaryMin&amp;#39;].astype(float)
+job_spec_df[&amp;#39;jobClassSalaryMax&amp;#39;] = job_spec_df[&amp;#39;jobClassSalaryMax&amp;#39;].astype(float)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;imputing-gender-information&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Imputing gender information&lt;/h2&gt;
+&lt;p&gt;We have successfully gathered information on employee pay, job title, department, job type, union info and more. Working with a company, however, this is not necessarily riveting information. More often companies are interested in how demographics such as sex or race may affect these at an organizational level. For the purpose of this example, we take a guess an employee’s biological sex to give us a mock data set.&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;Here it is worth reiterating that there are huge issues with doing this type of guesswork in a real world setting. Furthermore, we cannot use the analysis here to make any claims about the City of Philadelphia’s actual pay practices. In this data set, employee gender is entirely a guess and we are not looking at gender non-conforming individuals. &lt;em&gt;However&lt;/em&gt; for the purposes of this exercise, I am happy with the number of observations and pretend gender. Now, we can attempt to determine pay inequity across gender based on this hypothetical data set. &lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;Another approach would have been to randomly assign gender to each observation in our data set, but I did not want to know ahead of time what the distributions would be. So, let’s jump into it.&lt;/p&gt;
+&lt;p&gt;We want a simple way of guessing at an employee’s gender. To do this, we will parse a list of the 100 most common names by sex and cross reference it with our list of employees using the &lt;code&gt;BeautifulSoup&lt;/code&gt; package. We use data on &lt;a href=&#34;https://www.ssa.gov/oact/babynames/decades/century.html&#34;&gt;Popular names for births in 1921-2020&lt;/a&gt; to help our guesses. Take a look at webpage–you can see a list with each of the most popular names by sex side by side. Looking at the html, we can see a clear pattern of where each name appears. This will make our web scraping easier.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;NAMES_URL = &amp;#39;https://www.ssa.gov/oact/babynames/decades/century.html&amp;#39;
+names_page = requests.get(NAMES_URL)
+
+soup = BeautifulSoup(names_page.content, &amp;#39;html.parser&amp;#39;)
+body = soup.tbody&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;body&lt;/code&gt; contains parsed html. Using the &lt;code&gt;find.all&lt;/code&gt; method we can grab each of the popular names and assign them to a corresponding list by sex.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;#initialize our lists
+male_names = []
+female_names = []
+
+for line in body.find_all(&amp;#39;tr&amp;#39;):
+    for i, item in enumerate(line.find_all(&amp;#39;td&amp;#39;)):
+        if i==1:
+            male_names.append(item.text)
+        elif i==3:    
+            female_names.append(item.text)
+
+# for male_names, the scaper captures an extra line with source info. We don&amp;#39;t need this in our list
+male_names = male_names[:100]
+print(male_names)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [&amp;#39;James&amp;#39;, &amp;#39;Robert&amp;#39;, &amp;#39;John&amp;#39;, &amp;#39;Michael&amp;#39;, &amp;#39;William&amp;#39;, &amp;#39;David&amp;#39;, &amp;#39;Richard&amp;#39;, &amp;#39;Joseph&amp;#39;, &amp;#39;Thomas&amp;#39;, &amp;#39;Charles&amp;#39;, &amp;#39;Christopher&amp;#39;, &amp;#39;Daniel&amp;#39;, &amp;#39;Matthew&amp;#39;, &amp;#39;Anthony&amp;#39;, &amp;#39;Mark&amp;#39;, &amp;#39;Donald&amp;#39;, &amp;#39;Steven&amp;#39;, &amp;#39;Paul&amp;#39;, &amp;#39;Andrew&amp;#39;, &amp;#39;Joshua&amp;#39;, &amp;#39;Kenneth&amp;#39;, &amp;#39;Kevin&amp;#39;, &amp;#39;Brian&amp;#39;, &amp;#39;George&amp;#39;, &amp;#39;Edward&amp;#39;, &amp;#39;Ronald&amp;#39;, &amp;#39;Timothy&amp;#39;, &amp;#39;Jason&amp;#39;, &amp;#39;Jeffrey&amp;#39;, &amp;#39;Ryan&amp;#39;, &amp;#39;Jacob&amp;#39;, &amp;#39;Gary&amp;#39;, &amp;#39;Nicholas&amp;#39;, &amp;#39;Eric&amp;#39;, &amp;#39;Jonathan&amp;#39;, &amp;#39;Stephen&amp;#39;, &amp;#39;Larry&amp;#39;, &amp;#39;Justin&amp;#39;, &amp;#39;Scott&amp;#39;, &amp;#39;Brandon&amp;#39;, &amp;#39;Benjamin&amp;#39;, &amp;#39;Samuel&amp;#39;, &amp;#39;Gregory&amp;#39;, &amp;#39;Frank&amp;#39;, &amp;#39;Alexander&amp;#39;, &amp;#39;Raymond&amp;#39;, &amp;#39;Patrick&amp;#39;, &amp;#39;Jack&amp;#39;, &amp;#39;Dennis&amp;#39;, &amp;#39;Jerry&amp;#39;, &amp;#39;Tyler&amp;#39;, &amp;#39;Aaron&amp;#39;, &amp;#39;Jose&amp;#39;, &amp;#39;Adam&amp;#39;, &amp;#39;Henry&amp;#39;, &amp;#39;Nathan&amp;#39;, &amp;#39;Douglas&amp;#39;, &amp;#39;Zachary&amp;#39;, &amp;#39;Peter&amp;#39;, &amp;#39;Kyle&amp;#39;, &amp;#39;Walter&amp;#39;, &amp;#39;Ethan&amp;#39;, &amp;#39;Jeremy&amp;#39;, &amp;#39;Harold&amp;#39;, &amp;#39;Keith&amp;#39;, &amp;#39;Christian&amp;#39;, &amp;#39;Roger&amp;#39;, &amp;#39;Noah&amp;#39;, &amp;#39;Gerald&amp;#39;, &amp;#39;Carl&amp;#39;, &amp;#39;Terry&amp;#39;, &amp;#39;Sean&amp;#39;, &amp;#39;Austin&amp;#39;, &amp;#39;Arthur&amp;#39;, &amp;#39;Lawrence&amp;#39;, &amp;#39;Jesse&amp;#39;, &amp;#39;Dylan&amp;#39;, &amp;#39;Bryan&amp;#39;, &amp;#39;Joe&amp;#39;, &amp;#39;Jordan&amp;#39;, &amp;#39;Billy&amp;#39;, &amp;#39;Bruce&amp;#39;, &amp;#39;Albert&amp;#39;, &amp;#39;Willie&amp;#39;, &amp;#39;Gabriel&amp;#39;, &amp;#39;Logan&amp;#39;, &amp;#39;Alan&amp;#39;, &amp;#39;Juan&amp;#39;, &amp;#39;Wayne&amp;#39;, &amp;#39;Roy&amp;#39;, &amp;#39;Ralph&amp;#39;, &amp;#39;Randy&amp;#39;, &amp;#39;Eugene&amp;#39;, &amp;#39;Vincent&amp;#39;, &amp;#39;Russell&amp;#39;, &amp;#39;Elijah&amp;#39;, &amp;#39;Louis&amp;#39;, &amp;#39;Bobby&amp;#39;, &amp;#39;Philip&amp;#39;, &amp;#39;Johnny&amp;#39;]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In our employee data set, we will compare the first name of each employee to see if it appears in either our &lt;code&gt;female_names&lt;/code&gt; list or our &lt;code&gt;male_names&lt;/code&gt; list. If it does, we will assign them a binary value indicating which group they belong to.&lt;/p&gt;
+&lt;p&gt;To help with our text comparisons, we want to make all letters lowercase so that capitalizations do not through off our script. Having done this, we iterate through our &lt;code&gt;df&lt;/code&gt; and assign each employee to the variable &lt;code&gt;likely_female&lt;/code&gt; or &lt;code&gt;likely_male&lt;/code&gt;. Those employees who are not categorized by this method will be removed from our data.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# first step will be to standardize lists to lowercase
+for i, name in enumerate(male_names):
+    male_names[i] = name.lower()
+
+for i, name in enumerate(female_names):
+    female_names[i] = name.lower()
+
+df.first_name = df.first_name.str.lower()
+
+# add likely_male and likely female columns to df, where a 1 represents yes and a 0 means no
+df[&amp;#39;likely_male&amp;#39;] = np.where(df.first_name.isin(male_names), 1, 0)
+df[&amp;#39;likely_female&amp;#39;] = np.where(df.first_name.isin(female_names), 1, 0)
+
+df.head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    last_name first_name  ... likely_male likely_female
+## 12    Cooney      james  ...           1             0
+## 37    Zucker    stanley  ...           0             0
+## 52    Labree     martin  ...           0             0
+## 57    Biello   patricia  ...           0             1
+## 87     Scott      karen  ...           0             1
+## 
+## [5 rows x 20 columns]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s see how well our matching process did.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# it appears we were able to guess about 50% of employees&amp;#39; gender
+sum_males = sum(df[&amp;#39;likely_male&amp;#39;])
+sum_females = sum(df[&amp;#39;likely_female&amp;#39;])
+
+print(&amp;#39;Count of likely males: &amp;#39; + str(sum_males))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Count of likely males: 10500&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;#39;Count of likely females: &amp;#39; + str(sum_females))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Count of likely females: 3572&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;#39;Total likely matches: &amp;#39; + str(sum_males + sum_females))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Total likely matches: 14072&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;#39;Total observations in df: &amp;#39; + str(len(df)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Total observations in df: 28201&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;#39;Percentage counted: &amp;#39; + str(np.round((sum_males + sum_females) / len(df) * 100,2)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Percentage counted: 49.9&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bringing-it-all-together&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bringing it all together&lt;/h2&gt;
+&lt;p&gt;We have imputed sex information for about half of the employees in our data. Since we have a pretty high n, let’s just toss out those who don’t have sex info. Again, in a real organization, you would have this detail in your records so you would never face this issue.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;# include just the observations of salaried employee that we have gender info for
+df = df[(df[&amp;#39;likely_female&amp;#39;] == 1) | (df[&amp;#39;likely_male&amp;#39;] == 1)]
+
+print(len(df))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 14072&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We now just need to select the columns we will be using in our pay equity analysis, join the job level data we compiled in &lt;code&gt;job_spec_df&lt;/code&gt;, and we’ll be good to go!&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df = df[[&amp;#39;last_name&amp;#39;,
+          &amp;#39;first_name&amp;#39;,
+          &amp;#39;title&amp;#39;,
+          &amp;#39;job_code&amp;#39;,
+          &amp;#39;department_name&amp;#39;,
+          &amp;#39;department_number&amp;#39;,
+          &amp;#39;base_salary&amp;#39;,
+          &amp;#39;likely_male&amp;#39;,
+          &amp;#39;likely_female&amp;#39;]]
+
+
+# Now we have dataframe df which has employee data. we want to add payRange, jobClassSalaryMin, and jobClassSalaryMax to the data set
+# mapped as job_code = jobClassCode
+
+combined_df = df.merge(job_spec_df, how=&amp;#39;left&amp;#39;, left_on=&amp;#39;job_code&amp;#39;, right_on=&amp;#39;jobClassCode&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, let’s take a look at the shape of our data and save to a file for our analysis.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df_to_save = combined_df.dropna()
+
+print(df_to_save.shape)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (10778, 18)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df_to_save.to_csv(&amp;#39;MVR_preprocessed_data.csv&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;In part one of this Pay Equity Analysis tutorial, we pulled together the the necessary salary data using Philly’s Open Data API. We then cleaned our job level data to help color our analysis. Finally, we flexed our web scraping muscles to impute sex data and combined with our employee pay data. We are now all set to do the actual pay equity analysis! You can find part two (coming soon) here.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;font color=&#34;grey&#34;&gt; Originally posted: January 18, 2022&lt;/font&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Configuring an SSH connection in Jupyter Notebooks</title>
+      <link>https://iopsychist.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</guid>
+      <description>&lt;p&gt;Sometimes, the database you want to connect a Jupyter Notebook to is  located behind an SSH tunnel. Using the files here, you can set establish the SSH connection and connect to the database all from within Python.&lt;/p&gt;
+&lt;p&gt;I have this set up such that both the config file and the connector methods are separate from the Python script you are working in. However, you can also copy the mypython_dbconnector.py file into a Jupyter Notebook and not worry about importing it. I like the separation to keep the ipynb file clean. &lt;em&gt;Note:&lt;/em&gt; this code is adapted from &lt;a href=&#34;https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;create-the-functions-we-will-use&#34;&gt;Create the functions we will use&lt;/h2&gt;
+&lt;p&gt;We need to define a few functions for easily connecting to the database. In this case, we are connecting to a MySQL database so we use the Python package &lt;code&gt;pymysql&lt;/code&gt;. This can easily be changed to a different database if your needs require.&lt;/p&gt;
+&lt;p&gt;Create a file mypython_dbconnector.py with the following code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+import pandas as pd
+import matplotlib.pyplot as plt
+import pymysql
+import logging
+import sshtunnel
+from sshtunnel import SSHTunnelForwarder
+
+import config
+
+
+# define the functions we will be using
+
+def open_ssh_tunnel(verbose=False):
+    &amp;quot;&amp;quot;&amp;quot;Open an SSH tunnel and connect using a username and password.
+    
+    :param verbose: Set to True to show logging
+    :return tunnel: Global SSH tunnel connection
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    if verbose:
+        sshtunnel.DEFAULT_LOGLEVEL = logging.DEBUG
+    
+    global tunnel
+    tunnel = SSHTunnelForwarder(
+        (config.ssh_host, 22),
+        ssh_username = config.ssh_username,
+        ssh_password = config.ssh_password,
+        remote_bind_address = (&#39;127.0.0.1&#39;, 3306)
+    )
+    
+    tunnel.start()
+    
+    
+def mysql_connect():
+    &amp;quot;&amp;quot;&amp;quot;Connect to a MySQL server using the SSH tunnel connection
+    
+    :return connection: Global MySQL database connection
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    global connection
+    
+    connection = pymysql.connect(
+        host=&#39;127.0.0.1&#39;,
+        user=config.database_username,
+        password=config.database_password,
+        database=config.database_name,
+        port=tunnel.local_bind_port
+    )
+    
+
+def run_query(sql):
+    &amp;quot;&amp;quot;&amp;quot;Runs a given SQL query via the global database connection.
+    
+    :param sql: MySQL query
+    :return: Pandas dataframe containing results
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    return pd.read_sql_query(sql, connection)
+
+
+def mysql_disconnect():
+    &amp;quot;&amp;quot;&amp;quot;Closes the MySQL database connection.
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    connection.close()
+    
+    
+def close_ssh_tunnel():
+    &amp;quot;&amp;quot;&amp;quot;Closes the SSH tunnel connection.
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    tunnel.close
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;warning&#34; style=&#34;background-color:lightyellow&#34;&gt;
+&lt;i&gt;Note:&lt;/i&gt; saving this file as dbconnector.py may interfere with other packages in your environment and lead to unexpected behaviors.
+&lt;/div&gt;
+&lt;h2 id=&#34;create-the-config-file-with-our-connection-credentials&#34;&gt;Create the config file with our connection credentials&lt;/h2&gt;
+&lt;p&gt;Next, we need to provide python with the credentials to connect. I like to define these in a separate file so that I can share the actual Jupyter notebook with my work and not have to worry about security. Enter your usernames and passwords in the file below and save it as &lt;code&gt;config.py&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+# Standard TCP/IP
+
+# may need to change this depending on your tunnel connection details
+ssh_host = &#39;128.122.34.205&#39;
+# port 22 by default
+
+ssh_username = &#39;SSH_USERNAME&#39;
+ssh_password = &#39;SSH_PASSWORD&#39;
+
+database_name = &#39;YOUR_DATABASE_NAME&#39;
+localhost = &#39;127.0.0.1&#39;
+# port 3306 by default
+
+database_username = &#39;YOUR_USERNAME&#39;
+database_password = &#39;YOUR_PASSWORD&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;connect-to-the-database-and-get-to-work&#34;&gt;Connect to the database and get to work!&lt;/h2&gt;
+&lt;p&gt;Finally, we are ready to connect and start working with our data. Make sure both the files we just created are in the same directory and then create a new Jupyter Notebook file in the same location.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+import mypython_dbconnector
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We start with the imports we will be using for our work, along with importing our file &lt;code&gt;mypthon_dbconnector.py&lt;/code&gt;. Now, all we need to do is call the functions we defined earlier. We then pass our sql query as a string to our &lt;code&gt;run_query()&lt;/code&gt; command and save the return value to a dataframe. Rinse and repeat as necessary!&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# connect to ssh tunnel and to mysql db
+mypython_dbconnector.open_ssh_tunnel()
+mypython_dbconnector.mysql_connect()
+
+# define query
+query = &#39;&#39;&#39;
+SELECT
+    *
+FROM
+    table_name
+&#39;&#39;&#39;
+
+df = mypython_dbconnector.run_query(query)
+
+# your data analysis here
+# TODO
+
+# close mysql connection and close ssh tunnel
+mypython_dbconnector.mysql_disconnect()
+mypython_dbconnector.close_ssh_tunnel()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once you are connected to the database through the ssh tunnel, you can access it a you normally would. Be sure to disconnect from the database and close the SSH tunnel when you are done working with it. The full directory setup with example jupyter notebook can be found at &lt;a href=&#34;https://github.com/eli-jaffe/ssh_mysql_connect&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/eli-jaffe/ssh_mysql_connect&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resources: People Analytics</title>
+      <link>https://iopsychist.netlify.app/post/resources-people-analytics/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/resources-people-analytics/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve gathered a number of resources which have helped me at various stages in my journey into People Analytics. Most of the resources listed here range from the beginner to intermediate level. Hopefully they can be of help as you progress along your own journey.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;th&gt;Link&lt;/th&gt;
+&lt;th&gt;Note&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;r/IO Programming Starter Kit&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://docs.google.com/document/u/0/d/1OZih--8wujuAdyxln5uvrRHOZQBvjI4pN6VHjPY5d_0/mobilebasic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.google.com/document/u/0/d/1OZih--8wujuAdyxln5uvrRHOZQBvjI4pN6VHjPY5d_0/mobilebasic&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compensation Analytics Dashboard in Tableau&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://public.tableau.com/profile/luisbatista#!/vizhome/HRAnalyticsDashboard_16097240839050/Compensation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://public.tableau.com/profile/luisbatista#!/vizhome/HRAnalyticsDashboard_16097240839050/Compensation&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Analyzing National Salary Equity in R with Tidyverse&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.airweb.org/article/2019/04/17/analyzing-national-salary-equity-in-r-with-tidyverse&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.airweb.org/article/2019/04/17/analyzing-national-salary-equity-in-r-with-tidyverse&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Glassdoor Report Analyzing Gender Pay Gap&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.glassdoor.com/research/app/uploads/sites/2/2019/03/GD_Report_AnalyzingGenderPayGap_v2-2.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.glassdoor.com/research/app/uploads/sites/2/2019/03/GD_Report_AnalyzingGenderPayGap_v2-2.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Empath&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/Ejhfast/empath-client&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Ejhfast/empath-client&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;From the author: Empath is a Python library for analyzing text data, something I&amp;rsquo;ve been working a lot with lately. It&amp;rsquo;s a tool that can generate and validate new lexical categories on demand through deep learning and a corpus of more than 1.8 billion words. What&amp;rsquo;s cool about it is that it was built to be a reverse-engineered version of the Linguistic Inquiry and Word Count [LIWC], which has been used for psychometric applications and research. You can read more about LIWC here, and the Empath whitepaper can also be found here.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data Skills for Reproducible Research&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://psyteachr.github.io/reprores-v2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://psyteachr.github.io/reprores-v2/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Github of a Dr in IO Psych - lots of R resources&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jeromyanglim/r-vandenberghe-exercise&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/jeromyanglim/r-vandenberghe-exercise&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&amp;lt;- this link is EFA specific example but click around and find out&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EFA and CFA tutorials&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://stats.idre.ucla.edu/spss/seminars/introduction-to-factor-analysis/a-practical-introduction-to-factor-analysis/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://stats.idre.ucla.edu/spss/seminars/introduction-to-factor-analysis/a-practical-introduction-to-factor-analysis/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Psychometric open dataset&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://openpsychometrics.org/_rawdata/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://openpsychometrics.org/_rawdata/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Investing in People Online&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://orgtools.shinyapps.io/IIP3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://orgtools.shinyapps.io/IIP3/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&amp;lt;&amp;ndash; calculator for employee separations (turnover)  absenteeism  health and welfare  attitudes and engagement  workplace flexibility programs  staffing utility  payoffs from improved selection  payoffs from training and development&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;How to Analyze the Gender Pay Gap&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.glassdoor.com/research/app/uploads/sites/2/2019/03/GD_Report_AnalyzingGenderPayGap_v2-2.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.glassdoor.com/research/app/uploads/sites/2/2019/03/GD_Report_AnalyzingGenderPayGap_v2-2.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Grabbing and Analyzing Pay Data with Python&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://towardsdatascience.com/a-beginners-guide-to-grabbing-and-analyzing-salary-data-in-python-e8c60eab186e&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://towardsdatascience.com/a-beginners-guide-to-grabbing-and-analyzing-salary-data-in-python-e8c60eab186e&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Re:Work (ie Google) guide to pay equity analysis&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://rework.withgoogle.com/guides/pay-equity/steps/analyze-the-data-and-look-for-variance/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://rework.withgoogle.com/guides/pay-equity/steps/analyze-the-data-and-look-for-variance/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Network Analysis for Business Performance webinar series - focuses on overview as well as UCINET software&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://connectedcommons.com/network-analysis-for-business-performance/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://connectedcommons.com/network-analysis-for-business-performance/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Handbook of Regression Modeling in People Analytics&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://peopleanalytics-regression-book.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://peopleanalytics-regression-book.org/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;font color=&#34;grey&#34;&gt; Originally posted: January 10, 2022&lt;/font&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resources: Python</title>
+      <link>https://iopsychist.netlify.app/post/resources-python/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/resources-python/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve gathered a number of resources which have helped me at various stages in my journey into Python and programming. By and large, the order in which they are presented reflects when I came into contact with them. All of them helped my understanding in some way. Most of the resources listed here range from the beginner to intermediate level. Hopefully they can be of help as you progress along your own journey.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;th&gt;Link&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Python101 by Mike Driscoll&amp;ndash;very helpful when just starting out. Occasionallly there are promos for free access&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://leanpub.com/py101&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://leanpub.com/py101&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;python/dash&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://coolsciencey.com/covid-dash-sciencey/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://coolsciencey.com/covid-dash-sciencey/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;JPEG Image Scanning&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://yasoob.me/posts/understanding-and-writing-jpeg-decoder-in-python/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://yasoob.me/posts/understanding-and-writing-jpeg-decoder-in-python/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Debugging&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://martinheinz.dev/blog/24&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://martinheinz.dev/blog/24&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Beginner to Intermediate&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://learnbyexample.github.io/curated-resources/python-intermediate/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://learnbyexample.github.io/curated-resources/python-intermediate/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Collection Of Data Science Resources&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.theclickreader.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.theclickreader.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;docker container&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.pybootcamp.com/blog/how-to-containerize-python-application/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.pybootcamp.com/blog/how-to-containerize-python-application/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Robinhood API tutorial&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://youtu.be/C5buU4zjjx0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://youtu.be/C5buU4zjjx0&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nbdev&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.fast.ai/2019/12/02/nbdev/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.fast.ai/2019/12/02/nbdev/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fast AI course on PyTorch/Deep Learning&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://course.fast.ai/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://course.fast.ai/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;building an android app with Python&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://towardsdatascience.com/building-android-apps-with-python-part-1-603820bebde8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://towardsdatascience.com/building-android-apps-with-python-part-1-603820bebde8&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Web scraping&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://medium.com/python-in-plain-english/web-scraping-made-easy-with-python-and-chrome-windows-da85a08d54f3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://medium.com/python-in-plain-english/web-scraping-made-easy-with-python-and-chrome-windows-da85a08d54f3&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Flask - Postgres - Heroku Tutorial&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://blog.arctype.com/postgres-heroku/?utm_campaign=postgres-heroku&amp;amp;utm_medium=blog&amp;amp;utm_source=reddit&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://blog.arctype.com/postgres-heroku/?utm_campaign=postgres-heroku&amp;utm_medium=blog&amp;utm_source=reddit&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Exploratory Data Analysis with Python&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.theclickreader.com/exploratory-data-analysis-with-python/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.theclickreader.com/exploratory-data-analysis-with-python/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;REST API with Django&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://youtu.be/3DjZzK6IFa0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://youtu.be/3DjZzK6IFa0&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;intermediate python resources&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://learnbyexample.github.io/py_resources/intermediate.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://learnbyexample.github.io/py_resources/intermediate.html&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;premade plots with python&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.python-graph-gallery.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.python-graph-gallery.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Turning python script into &amp;lsquo;Real&amp;rsquo; program with system services on linux&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://medium.com/star-gazers/turning-your-python-script-into-a-real-program-cb702e16ed02&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://medium.com/star-gazers/turning-your-python-script-into-a-real-program-cb702e16ed02&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data Visualization in python&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://youtu.be/DevfjHOhuFc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://youtu.be/DevfjHOhuFc&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Jupiter Notebook viewer with various tutorials&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://nbviewer.jupyter.org/github/lightning-viz/lightning-example-notebooks/blob/master/index.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://nbviewer.jupyter.org/github/lightning-viz/lightning-example-notebooks/blob/master/index.ipynb&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4 hour Python course&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://youtu.be/rfscVS0vtbw&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://youtu.be/rfscVS0vtbw&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data viz py package comparison&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://share.streamlit.io/discdiver/data-viz-streamlit/main/app.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://share.streamlit.io/discdiver/data-viz-streamlit/main/app.py&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Layout Parser&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/Layout-Parser/layout-parser&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Layout-Parser/layout-parser&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3-Way Data Migration between Support Systems&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://tilsupport.wordpress.com/2021/04/10/3-way-data-migration-between-support-systems/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://tilsupport.wordpress.com/2021/04/10/3-way-data-migration-between-support-systems/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Python Cheatsheet&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/gto76/python-cheatsheet&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/gto76/python-cheatsheet&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Markdown language overview for Jupyter Notebook&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.datacamp.com/community/tutorials/markdown-in-jupyter-notebook&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.datacamp.com/community/tutorials/markdown-in-jupyter-notebook&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Jupyter Notebook Extensions&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/ipython-contrib/jupyter_contrib_nbextensions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/ipython-contrib/jupyter_contrib_nbextensions&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Encoding Categorical Variables in Python&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://pbpython.com/categorical-encoding.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://pbpython.com/categorical-encoding.html&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Progress Bar for iterables python package&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://tqdm.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://tqdm.github.io/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pinguion Stats package (comparable to scipy and statsmodel)&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://pingouin-stats.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://pingouin-stats.org/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Write an SQL query builder in 150 lines of Python!&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://death.andgravity.com/query-builder-how&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://death.andgravity.com/query-builder-how&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data Science Course&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/cmparlettpelleriti/CPSC392ParlettPelleriti&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/cmparlettpelleriti/CPSC392ParlettPelleriti&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;open-source, community-driven project to help data scientists improve fairness of AI systems&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://fairlearn.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://fairlearn.org/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bayesian Modeling and Computation in Python&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://bayesiancomputationbook.com/welcome.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://bayesiancomputationbook.com/welcome.html&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;font color=&#34;grey&#34;&gt; Originally posted: January 10, 2022&lt;/font&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog | IOPsychist</title>
+    <link>https://iopsychist.netlify.app/tag/blog/</link>
+      <atom:link href="https://iopsychist.netlify.app/tag/blog/index.xml" rel="self" type="application/rss+xml" />
+    <description>blog</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024</copyright><lastBuildDate>Mon, 11 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://iopsychist.netlify.app/media/sharing.png</url>
+      <title>blog</title>
+      <link>https://iopsychist.netlify.app/tag/blog/</link>
+    </image>
+    
+    <item>
+      <title>I presented at The 11th Annual Conference on Human Capital Innovation in Technology &amp; Analytics (slides attached)</title>
+      <link>https://iopsychist.netlify.app/post/recap-the-11th-annual-conference-on-human-capital-innovation-in-technology-analytics/</link>
+      <pubDate>Mon, 11 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/recap-the-11th-annual-conference-on-human-capital-innovation-in-technology-analytics/</guid>
+      <description>
+&lt;script src=&#34;https://iopsychist.netlify.app/post/recap-the-11th-annual-conference-on-human-capital-innovation-in-technology-analytics/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;the-11th-annual-conference-on-human-capital-innovation-in-technology-analytics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The 11th Annual Conference on Human Capital Innovation in Technology &amp;amp; Analytics&lt;/h2&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;In April, I had my first opportunity to present at an academic conference - the 11th Annual Conference on &lt;a href=&#34;http://www.nyu.engineering/events/2022/04/26/11th-annual-conference-human-capital-innovation-technology-analytics&#34;&gt;Human Capital Innovation in Technology and Analytics&lt;/a&gt; at NYU. This year’s topic was “The Great Resignation: How Analytics Can Help”. I spoke about some of the work I’ve been involved in with Frank Mo and the Human Capital Analytics Lab to forecast job demand in the Knowledge Worker and Service Worker industries. I learned quite a bit through the process of preparing for, presenting, and discussing our work. It was very cool to hear what the other presenters were working on in their companies and research institutes as well. Also among the speakers were team members from the Conference Board, Accenture, Microsoft, and Johnson &amp;amp; Johnson - quite a lineup to follow!&lt;/p&gt;
+&lt;p&gt;In our research, we worked with data from &lt;a href=&#34;http://candogram.com&#34;&gt;Candogram&lt;/a&gt; - an awesome company that provides job market education to students and, in doing so, processes 2 million job ads per day from 10,000 US employers - and from the BLS &lt;a href=&#34;http://https://www.bls.gov/jlt/&#34;&gt;Job Openings and Labor Turnover survey (JOLTS)&lt;/a&gt;. Our central research question looked at the spike in voluntary quits during the Great Resignation as a precipitating event for changes in labor market demand. To uncover insight into this, we tested two advanced time series forecasting methods - Facebook’s &lt;a href=&#34;https://facebook.github.io/prophet/&#34;&gt;Prophet&lt;/a&gt; model and LinkedIn’s &lt;a href=&#34;https://engineering.linkedin.com/blog/2021/greykite--a-flexible--intuitive--and-fast-forecasting-library&#34;&gt;Silverkite&lt;/a&gt; model. It turns out there is a relationship between job quits and job demand, but it depends on which industry you’re looking at!&lt;/p&gt;
+&lt;p&gt;We are currently working on a white paper which we hope to release in the next few weeks but you can get a sneak peak into what we found from the slide deck from our presentation. This is just the start and there are many future directions we are considering. In the meantime, we’d love to hear your thoughts and feedback! Stay tuned for further updates coming soon.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_1.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_2.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_3.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_4.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_5.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_6.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_7.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_8.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_9.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_10.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_11.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_12.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_13.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_14.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_15.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_16.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_17.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_18.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_19.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_20.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://iopsychist.netlify.app/hcita_2022_21.jpeg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;font color=&#34;grey&#34;&gt; Originally posted: July 11, 2022&lt;/font&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Showcase | IOPsychist</title>
+    <link>https://iopsychist.netlify.app/category/showcase/</link>
+      <atom:link href="https://iopsychist.netlify.app/category/showcase/index.xml" rel="self" type="application/rss+xml" />
+    <description>Showcase</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024</copyright><lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://iopsychist.netlify.app/media/sharing.png</url>
+      <title>Showcase</title>
+      <link>https://iopsychist.netlify.app/category/showcase/</link>
+    </image>
+    
+    <item>
+      <title>SIOP ML Competition 2024 - LLMs</title>
+      <link>https://iopsychist.netlify.app/post/siop-ml-competition-2024/</link>
+      <pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/siop-ml-competition-2024/</guid>
+      <description>&lt;h1 id=&#34;harnessing-the-power-of-generative-ai-in-io-psychology-insights-from-the-siop-2024-machine-learning-competition&#34;&gt;Harnessing the Power of Generative AI in I/O Psychology: Insights from the SIOP 2024 Machine Learning Competition&lt;/h1&gt;
+&lt;p&gt;I recently had the exhilarating opportunity to participate in the SIOP 2024 Machine Learning Competition, a pioneering event sponsored by HackerRank, DDI, and the Department of Psychology at Virginia Tech. This competition was a playground for showcasing the synergy between Large Language Models (LLMs) and Industrial/Organizational (I/O) Psychology, aiming to explore the potentials and boundaries of AI in our field.&lt;/p&gt;
+&lt;h2 id=&#34;the-challenge-and-my-journey&#34;&gt;The Challenge and My Journey&lt;/h2&gt;
+&lt;p&gt;The competition posed four intriguing challenges, each designed to reflect common tasks in I/O Psychology:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Predicting Empathy in Workplace Responses&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generating Interview Responses&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rating Item Clarity for Personality Tests&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Identifying Fairness Perceptions in Organizational Policies&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Using a quantized Mixtral model (a mixture of experts), I ventured into these tasks with a mix of curiosity and technical acumen. My approach involved crafting Python scripts in a Google Colab notebook, meticulously tuning the model to resonate with the intricacies of I/O psychology-related queries.&lt;/p&gt;
+&lt;h2 id=&#34;surpassing-expectations-with-llms&#34;&gt;Surpassing Expectations with LLMs&lt;/h2&gt;
+&lt;p&gt;The journey was not just about solving problems but also about discovering the remarkable capabilities of LLMs in understanding and predicting human behavior and organizational phenomena. To my delight, the accuracy of my solutions surpassed expectations, underscoring the robustness and adaptability of LLMs in handling nuanced psychological data.&lt;/p&gt;
+&lt;h2 id=&#34;why-people-analytics-and-io-psychology-should-embrace-generative-ai&#34;&gt;Why People Analytics and I/O Psychology Should Embrace Generative AI&lt;/h2&gt;
+&lt;p&gt;My experiences during the competition solidified my belief that People Analytics professionals and I/O Psychologists are uniquely positioned to leverage Generative AI. Our foundational skills in analyzing human behavior and organizational dynamics align seamlessly with the capabilities of LLMs, allowing us to extract meaningful insights and foster innovation in our practices.&lt;/p&gt;
+&lt;h2 id=&#34;sharing-the-knowledge&#34;&gt;Sharing the Knowledge&lt;/h2&gt;
+&lt;p&gt;In the spirit of collaboration and knowledge-sharing, I have made my code available on GitHub. This repository not only contains the scripts used in the competition but also serves as a resource for those interested in integrating Generative AI into their I/O Psychology workflows.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/YourGitHubProfile/SIOP2024_ML_Competition_Code&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Check out my GitHub repository for the competition code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In conclusion, the SIOP 2024 Machine Learning Competition was not just a contest but a learning journey that highlighted the symbiotic relationship between I/O Psychology and Generative AI. As we move forward, embracing these advanced technologies will undoubtedly lead to more innovative, efficient, and effective outcomes in our field.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

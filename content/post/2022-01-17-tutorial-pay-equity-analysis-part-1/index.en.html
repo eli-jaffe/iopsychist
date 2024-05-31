@@ -1,0 +1,362 @@
+---
+title: 'Tutorial: Pay Equity Analysis [Part 1]'
+author: R package build
+date: '2022-01-17'
+slug: tutorial-pay-equity-analysis-part-1
+categories:
+  - People Analytics
+tags:
+  - Python
+  - R
+  - Compensation
+  - DEI
+  - tutorial
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-01-18T22:31:54-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this tutorial, we will conduct a pay equity analysis on publicly available pay information for the City of Philadelphia. The goal is to present an example of how a pay equity analysis may be conducted that can be used in your organization. The tutorial consists of two main phases:</p>
+<ol style="list-style-type: decimal">
+<li>Data Collection and Cleaning</li>
+</ol>
+<ul>
+<li>This step uses Python for scraping the data from the web and collecting it into a workable file for analysis. We use a basic method to impute gender identification to give us a more real world example (note: this also limits the accuracy of our analysis. These results should not be interpreted to be an actual representation of pay equity among City of Philadelphia employees). Likely you will have direct access to the necessary data through your organization and this step will be unnecessary. Feel free to skip to the next section if so. However, if you are looking for a working data set to practice on your own, this section may be helpful.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Pay Equity Analysis</li>
+</ol>
+<ul>
+<li>This is likely where you will start within your organization. I walk through two methods for analyzing pay data – Regression as well as Classification and Regression Tree (CART) modeling. The analysis has been conducted using R.</li>
+</ul>
+</div>
+<div id="part-1---data-collecetion-and-cleaning" class="section level1">
+<h1>Part 1 - Data Collecetion and Cleaning</h1>
+<div id="employee-salary" class="section level2">
+<h2>Employee Salary</h2>
+<p>The City of Philadelphia participates in an <a href="opendataphilly.org">Open Data program</a> where they publish many different data sets related to the Philadelphia region, including information on pay for public employees. Using this resource, we can pull in the bulk of the data necessary to conduct a pay equity analysis. To begin with, let’s import the necessary Python packages we will need. On top of the typical data science tools (pandas, numpy, seaborn, etc), we will be using <code>requests</code> for our API calls, <code>json</code> for parsing the data we get back, and <code>BeautifulSoup</code> for web scraping. There are a few auxiliary packages as well–go ahead and load them all so that everything works as intended.</p>
+<pre class="python"><code>import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set()
+
+import requests
+import json
+import ast
+from bs4 import BeautifulSoup
+from datetime import datetime</code></pre>
+<p>On the OpenDataPhilly.org website we can find Employee Earnings data by quarter, which has be provided with API access for us to use. We start by defining the URL to access the data. If you look at the URL, you will see the raw JSON. The requests package gets this JSON data and we next parse the JSON into the variable <code>data</code>.</p>
+<pre class="python"><code>URL = &#39;https://phl.carto.com/api/v2/sql?q=SELECT%20*%20FROM%20employee_earnings&#39;
+page = requests.get(URL)
+j_data = page.content
+data = json.loads(j_data)</code></pre>
+<p>Let’s look at the variable <code>data</code>.</p>
+<pre class="python"><code># let&#39;s look at the variable data
+type(data)
+
+# we see that is a dict
+# looking at the keys, we see there are &#39;rows&#39;, &#39;time&#39;, &#39;fields&#39;, and &#39;total_rows&#39;</code></pre>
+<pre><code>## &lt;class &#39;dict&#39;&gt;</code></pre>
+<pre class="python"><code>data.keys()</code></pre>
+<pre><code>## dict_keys([&#39;rows&#39;, &#39;time&#39;, &#39;fields&#39;, &#39;total_rows&#39;])</code></pre>
+<p>We see that is of type dict with the keys ‘rows’, ‘time’, ‘fields’, and ‘total_rows’. Rows seems relevant to our needs, and we can confirm this by looking at a single observation.</p>
+<pre class="python"><code># rows seem like what we&#39;ll need
+print(data[&#39;rows&#39;][0])</code></pre>
+<pre><code>## {&#39;cartodb_id&#39;: 1, &#39;the_geom&#39;: None, &#39;the_geom_webmercator&#39;: None, &#39;calendar_year&#39;: 2021, &#39;quarter&#39;: 3, &#39;last_name&#39;: &#39;Manko Jr&#39;, &#39;first_name&#39;: &#39;Theodore&#39;, &#39;title&#39;: &#39;Detective&#39;, &#39;job_code&#39;: &#39;6A12&#39;, &#39;department_name&#39;: &#39;PPD Police&#39;, &#39;department_number&#39;: &#39;11&#39;, &#39;base_salary&#39;: 85901, &#39;salary_type&#39;: &#39;Salaried&#39;, &#39;overtime_gross_pay_qtd&#39;: 1110.82, &#39;base_gross_pay_qtd&#39;: 23039.1, &#39;longevity_gross_pay_qtd&#39;: 2096.58, &#39;post_separation_gross_pay_qtd&#39;: None, &#39;miscellaneous_gross_pay_qtd&#39;: 7782.08, &#39;employee_category&#39;: &#39;Civil Service&#39;, &#39;compulsory_union_code&#39;: &#39;P&#39;, &#39;termination_month&#39;: None, &#39;termination_year&#39;: None, &#39;public_id&#39;: 5610}</code></pre>
+<pre class="python"><code># pull this into a pandas dataframe
+df = pd.DataFrame(data[&#39;rows&#39;])
+df.head()</code></pre>
+<pre><code>##    cartodb_id the_geom  ... termination_year  public_id
+## 0           1     None  ...              NaN       5610
+## 1           2     None  ...              NaN        319
+## 2           3     None  ...              NaN      21446
+## 3           4     None  ...              NaN      29891
+## 4           5     None  ...           2021.0      14611
+## 
+## [5 rows x 23 columns]</code></pre>
+<p>Great, we now have the beginning of our data set. Let’s take a look at what we have.</p>
+<pre class="python"><code># we have 23 columns and over 316,000 observations
+df.info()</code></pre>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+## RangeIndex: 316304 entries, 0 to 316303
+## Data columns (total 23 columns):
+##  #   Column                         Non-Null Count   Dtype  
+## ---  ------                         --------------   -----  
+##  0   cartodb_id                     316304 non-null  int64  
+##  1   the_geom                       0 non-null       object 
+##  2   the_geom_webmercator           0 non-null       object 
+##  3   calendar_year                  316304 non-null  int64  
+##  4   quarter                        316304 non-null  int64  
+##  5   last_name                      316304 non-null  object 
+##  6   first_name                     316304 non-null  object 
+##  7   title                          316304 non-null  object 
+##  8   job_code                       316304 non-null  object 
+##  9   department_name                316304 non-null  object 
+##  10  department_number              316304 non-null  object 
+##  11  base_salary                    300770 non-null  float64
+##  12  salary_type                    316303 non-null  object 
+##  13  overtime_gross_pay_qtd         164753 non-null  float64
+##  14  base_gross_pay_qtd             316304 non-null  float64
+##  15  longevity_gross_pay_qtd        210186 non-null  float64
+##  16  post_separation_gross_pay_qtd  4186 non-null    float64
+##  17  miscellaneous_gross_pay_qtd    316304 non-null  float64
+##  18  employee_category              316304 non-null  object 
+##  19  compulsory_union_code          316303 non-null  object 
+##  20  termination_month              33739 non-null   float64
+##  21  termination_year               33739 non-null   float64
+##  22  public_id                      316304 non-null  int64  
+## dtypes: float64(8), int64(4), object(11)
+## memory usage: 55.5+ MB</code></pre>
+<p>We see there are 23 columns and over 316,000 observations. Our variables are:</p>
+<ul>
+<li><strong>cartodb_id</strong>: an index generated by cartodb (where we must have imported the data from)</li>
+<li><strong>the_geom</strong> and <strong>the_geom_webmercator</strong>: geographic inforamtion. Not needed for our analysis</li>
+<li><strong>calendar_year</strong></li>
+<li><strong>quarter</strong>: we must have pay info per quarter</li>
+<li><strong>last_name</strong></li>
+<li><strong>first_name</strong></li>
+<li><strong>title</strong></li>
+<li><strong>job_code</strong></li>
+<li><strong>department_name</strong></li>
+<li><strong>department_number</strong></li>
+<li><strong>base_salary</strong></li>
+<li><strong>salary_type</strong> (Salaried or Non-Salaried. We will probably want to explore what the types are and how that affects <code>base_salary</code>)</li>
+<li><strong>overtime_gross_pay_qtd</strong>: gross overtime pay that quarter</li>
+<li><strong>base_gross_pay_qtd</strong>: base salary represented as a quarterly distribution</li>
+<li><strong>longevtiy_gross_pay_qtd</strong> (Phila.gov must have some additional pay component reflecting tenure)</li>
+<li><strong>post_separation_gross_pay_qtd</strong> (it appears Phila.gov will sometimes pay employees that have already left)</li>
+<li><strong>miscellaneous_gross_pay_qtd</strong></li>
+<li><strong>employee_category</strong> (what are the categories here?)</li>
+<li><strong>compulsory_union_code</strong></li>
+<li><strong>termination_month</strong></li>
+<li><strong>termination_year</strong></li>
+</ul>
+<p>There’s a lot here! The first few columns are identifiers from the database pull which we don’t need to worry about for our analysis. Then we get into year/quarter, employee info including name, title, and department data, and then a bunch of different quarterly pay info. Finally, we have termination date if applicable.</p>
+<blockquote>
+<p>At this point, I like to save the data to a file on my computer for easy access while I prepare it for analysis. This is not necessary, but ensures that I have the data in case anything happens to the source.</p>
+<pre class="python"><code>df.to_csv(path_or_buf=f&quot;{datetime.now().strftime(&#39;%Y-%m-%d&#39;)}_phila_ee_salary_data.csv&quot;, index=False)
+
+# next time when we want to use this data, we can simply load the dataframe df from the csv file instead
+# If you do so, un-comment the two lines below to continue following along
+ 
+#df = pd.read_csv(&#39;[YOURDATE]_phila_ee_salary_data.csv&#39;)
+#df.reset_index(drop = True, inplace=True)</code></pre>
+</blockquote>
+<p>It’s a bit overwhelming to take this all in, so let’s pare it down to just what we’ll need. For our analysis, we will only look at salaried employees. The same employee appears multiple times if they’ve worked for more than one quarter, so lets select just the data from Q4 of 2020. We also want to look only at active employees so we will remove those with a termination date. Then, we’ll drop the columns that aren’t relevant for us.</p>
+<pre class="python"><code># let&#39;s look at salaried employees only
+df = df[df.salary_type == &#39;Salaried&#39;]
+
+# we have data from more than one quarter. we want just the data from 2020Q4
+df = df[df.calendar_year == 2020] 
+df = df[df.quarter == 4]
+
+# we also want only active employees (i.e. those without a termination month or year)
+# check that all those with a termination month have a termination year (for data integrity purposes)
+
+# drop any employee that has been terminated
+df = df[df.termination_year.isna()]
+
+# let us also drop some columns we know we won&#39;t be using
+drop_cols = [&#39;cartodb_id&#39;,
+             &#39;the_geom&#39;, 
+             &#39;the_geom_webmercator&#39;,
+             &#39;calendar_year&#39;,
+             &#39;quarter&#39;]
+
+df.drop(drop_cols, axis=1, inplace=True)
+
+df.head(20)</code></pre>
+<pre><code>##             last_name first_name  ... termination_year public_id
+## 12             Cooney      James  ...              NaN     34345
+## 37             Zucker    Stanley  ...              NaN     24559
+## 52             Labree     Martin  ...              NaN     18078
+## 57             Biello   Patricia  ...              NaN      5019
+## 87              Scott      Karen  ...              NaN     11741
+## 98            O Brien     Eileen  ...              NaN     25831
+## 123           Johnson      Clyde  ...              NaN     24277
+## 152          Krawczyk    Richard  ...              NaN     31965
+## 164             Hatch     Steven  ...              NaN      4863
+## 189            Nieves      Linda  ...              NaN     34948
+## 195          Robinson    Gregory  ...              NaN       980
+## 211          Agozzino   Pasquale  ...              NaN     22378
+## 216          Reynolds     Denise  ...              NaN     30681
+## 229              Mohl      Brian  ...              NaN     11831
+## 233  Glinski-Sullivan      Susan  ...              NaN     28036
+## 273            Cannon    Theresa  ...              NaN     34725
+## 291            Hockel      Peter  ...              NaN     17968
+## 299          Mc Grath    Colleen  ...              NaN     31728
+## 305          Rucci Jr       Adam  ...              NaN     26865
+## 313      Merriweather    Tialynn  ...              NaN     11577
+## 
+## [20 rows x 18 columns]</code></pre>
+<p>So far so good! We have a nice data set that we could use to answer a number of questions already. However, it will be more inciteful for pay equity if we can pull in a few additional variables that may impact pay.</p>
+</div>
+<div id="additional-job-information" class="section level2">
+<h2>Additional Job Information</h2>
+<p>We now have a <code>df</code> with employee pay info but we do not know what the relevant job level and ranges are. We can find this on the phila.gov website. After a bit of digging, I found a page with <a href="https://www.phila.gov/personnel/Specs.html">job spec info</a> online. With a tad of more advanced web scraping which is beyond the scope of this tutorial, I was able to pull the details into a json file which I load below. This file can be found in the github repository for the project as well. Follow along the steps below to clean the file you’ve just imported.</p>
+<blockquote>
+<p>Note: If you follow the link above, you’ll notice there’s a 404 error! When I initially pulled this data in April of 2021, the page was up. However, the Philly webpage must have changed in the meantime. Yet another reason to save a local copy of data acquired through webscraping so that when things change, you don’t have to recreate the wheel.</p>
+</blockquote>
+<pre class="python"><code># I have pulled this into a json file which I open here
+with open(&#39;2021_04_28_phila_master_data_pull.json&#39;) as fh:
+    job_spec_data = json.load(fh)
+    
+# these are the rows we want for this analysis
+data_subset = job_spec_data[12:986]
+
+# we continue to pare down data_subset to just the details we need, in a nice dataframe-like list of dicts
+# select just the relevant details (each data in subset is a key-value pair. We only want the value for each row)
+for i, data in enumerate(data_subset):
+    data_subset[i] = data_subset[i][&#39;jobClassSpecs&#39;]
+
+# this will be the DF we use! job_spec_df
+job_spec_df = pd.DataFrame(data_subset)
+
+# take a look at our work
+job_spec_df.head()</code></pre>
+<pre><code>##   jobClassCode           jobClassTitle payRange  ... flsaCode effectiveDate family
+## 0         1A01  Clerical Assistant (S)     0003  ...       1N      6/2/2017      1
+## 1         1A02        Office Clerk (B)     0004  ...       1N     4/15/2019      1
+## 2         1A03          Office Clerk 2     0006  ...       1N     4/15/2019      1
+## 3         1A04             Clerk 3 (S)     0011  ...       1N     5/31/2013      1
+## 4         1A18               Secretary     0008  ...       1N      3/8/2019      1
+## 
+## [5 rows x 9 columns]</code></pre>
+<p>In the dataframe <code>job_spec_df</code> we have the following variables:</p>
+<ul>
+<li><strong>jobClassCode</strong></li>
+<li><strong>jobClassCode</strong></li>
+<li><strong>jobClassTitle</strong></li>
+<li><strong>payRange</strong></li>
+<li><strong>jobClassSalaryMin</strong></li>
+<li><strong>jobClassSalaryMax</strong></li>
+<li><strong>unionCode</strong></li>
+<li><strong>flsaCode</strong></li>
+<li><strong>effectiveDate</strong></li>
+<li><strong>family</strong></li>
+</ul>
+<p>The final step is to cast the data objects to the types we expect them to be.</p>
+<pre class="python"><code># cast the dtypes to the correct dtype
+job_spec_df[&#39;effectiveDate&#39;] = pd.to_datetime(job_spec_df[&#39;effectiveDate&#39;])
+job_spec_df[&#39;family&#39;] = job_spec_df[&#39;family&#39;].astype(str)
+job_spec_df[&#39;jobClassSalaryMin&#39;] = job_spec_df[&#39;jobClassSalaryMin&#39;].astype(float)
+job_spec_df[&#39;jobClassSalaryMax&#39;] = job_spec_df[&#39;jobClassSalaryMax&#39;].astype(float)</code></pre>
+</div>
+<div id="imputing-gender-information" class="section level2">
+<h2>Imputing gender information</h2>
+<p>We have successfully gathered information on employee pay, job title, department, job type, union info and more. Working with a company, however, this is not necessarily riveting information. More often companies are interested in how demographics such as sex or race may affect these at an organizational level. For the purpose of this example, we take a guess an employee’s biological sex to give us a mock data set.</p>
+<p><mark>Here it is worth reiterating that there are huge issues with doing this type of guesswork in a real world setting. Furthermore, we cannot use the analysis here to make any claims about the City of Philadelphia’s actual pay practices. In this data set, employee gender is entirely a guess and we are not looking at gender non-conforming individuals. <em>However</em> for the purposes of this exercise, I am happy with the number of observations and pretend gender. Now, we can attempt to determine pay inequity across gender based on this hypothetical data set. </mark></p>
+<p>Another approach would have been to randomly assign gender to each observation in our data set, but I did not want to know ahead of time what the distributions would be. So, let’s jump into it.</p>
+<p>We want a simple way of guessing at an employee’s gender. To do this, we will parse a list of the 100 most common names by sex and cross reference it with our list of employees using the <code>BeautifulSoup</code> package. We use data on <a href="https://www.ssa.gov/oact/babynames/decades/century.html">Popular names for births in 1921-2020</a> to help our guesses. Take a look at webpage–you can see a list with each of the most popular names by sex side by side. Looking at the html, we can see a clear pattern of where each name appears. This will make our web scraping easier.</p>
+<pre class="python"><code>NAMES_URL = &#39;https://www.ssa.gov/oact/babynames/decades/century.html&#39;
+names_page = requests.get(NAMES_URL)
+
+soup = BeautifulSoup(names_page.content, &#39;html.parser&#39;)
+body = soup.tbody</code></pre>
+<p><code>body</code> contains parsed html. Using the <code>find.all</code> method we can grab each of the popular names and assign them to a corresponding list by sex.</p>
+<pre class="python"><code>#initialize our lists
+male_names = []
+female_names = []
+
+for line in body.find_all(&#39;tr&#39;):
+    for i, item in enumerate(line.find_all(&#39;td&#39;)):
+        if i==1:
+            male_names.append(item.text)
+        elif i==3:    
+            female_names.append(item.text)
+
+# for male_names, the scaper captures an extra line with source info. We don&#39;t need this in our list
+male_names = male_names[:100]
+print(male_names)</code></pre>
+<pre><code>## [&#39;James&#39;, &#39;Robert&#39;, &#39;John&#39;, &#39;Michael&#39;, &#39;William&#39;, &#39;David&#39;, &#39;Richard&#39;, &#39;Joseph&#39;, &#39;Thomas&#39;, &#39;Charles&#39;, &#39;Christopher&#39;, &#39;Daniel&#39;, &#39;Matthew&#39;, &#39;Anthony&#39;, &#39;Mark&#39;, &#39;Donald&#39;, &#39;Steven&#39;, &#39;Paul&#39;, &#39;Andrew&#39;, &#39;Joshua&#39;, &#39;Kenneth&#39;, &#39;Kevin&#39;, &#39;Brian&#39;, &#39;George&#39;, &#39;Edward&#39;, &#39;Ronald&#39;, &#39;Timothy&#39;, &#39;Jason&#39;, &#39;Jeffrey&#39;, &#39;Ryan&#39;, &#39;Jacob&#39;, &#39;Gary&#39;, &#39;Nicholas&#39;, &#39;Eric&#39;, &#39;Jonathan&#39;, &#39;Stephen&#39;, &#39;Larry&#39;, &#39;Justin&#39;, &#39;Scott&#39;, &#39;Brandon&#39;, &#39;Benjamin&#39;, &#39;Samuel&#39;, &#39;Gregory&#39;, &#39;Frank&#39;, &#39;Alexander&#39;, &#39;Raymond&#39;, &#39;Patrick&#39;, &#39;Jack&#39;, &#39;Dennis&#39;, &#39;Jerry&#39;, &#39;Tyler&#39;, &#39;Aaron&#39;, &#39;Jose&#39;, &#39;Adam&#39;, &#39;Henry&#39;, &#39;Nathan&#39;, &#39;Douglas&#39;, &#39;Zachary&#39;, &#39;Peter&#39;, &#39;Kyle&#39;, &#39;Walter&#39;, &#39;Ethan&#39;, &#39;Jeremy&#39;, &#39;Harold&#39;, &#39;Keith&#39;, &#39;Christian&#39;, &#39;Roger&#39;, &#39;Noah&#39;, &#39;Gerald&#39;, &#39;Carl&#39;, &#39;Terry&#39;, &#39;Sean&#39;, &#39;Austin&#39;, &#39;Arthur&#39;, &#39;Lawrence&#39;, &#39;Jesse&#39;, &#39;Dylan&#39;, &#39;Bryan&#39;, &#39;Joe&#39;, &#39;Jordan&#39;, &#39;Billy&#39;, &#39;Bruce&#39;, &#39;Albert&#39;, &#39;Willie&#39;, &#39;Gabriel&#39;, &#39;Logan&#39;, &#39;Alan&#39;, &#39;Juan&#39;, &#39;Wayne&#39;, &#39;Roy&#39;, &#39;Ralph&#39;, &#39;Randy&#39;, &#39;Eugene&#39;, &#39;Vincent&#39;, &#39;Russell&#39;, &#39;Elijah&#39;, &#39;Louis&#39;, &#39;Bobby&#39;, &#39;Philip&#39;, &#39;Johnny&#39;]</code></pre>
+<p>In our employee data set, we will compare the first name of each employee to see if it appears in either our <code>female_names</code> list or our <code>male_names</code> list. If it does, we will assign them a binary value indicating which group they belong to.</p>
+<p>To help with our text comparisons, we want to make all letters lowercase so that capitalizations do not through off our script. Having done this, we iterate through our <code>df</code> and assign each employee to the variable <code>likely_female</code> or <code>likely_male</code>. Those employees who are not categorized by this method will be removed from our data.</p>
+<pre class="python"><code># first step will be to standardize lists to lowercase
+for i, name in enumerate(male_names):
+    male_names[i] = name.lower()
+
+for i, name in enumerate(female_names):
+    female_names[i] = name.lower()
+
+df.first_name = df.first_name.str.lower()
+
+# add likely_male and likely female columns to df, where a 1 represents yes and a 0 means no
+df[&#39;likely_male&#39;] = np.where(df.first_name.isin(male_names), 1, 0)
+df[&#39;likely_female&#39;] = np.where(df.first_name.isin(female_names), 1, 0)
+
+df.head()</code></pre>
+<pre><code>##    last_name first_name  ... likely_male likely_female
+## 12    Cooney      james  ...           1             0
+## 37    Zucker    stanley  ...           0             0
+## 52    Labree     martin  ...           0             0
+## 57    Biello   patricia  ...           0             1
+## 87     Scott      karen  ...           0             1
+## 
+## [5 rows x 20 columns]</code></pre>
+<p>Let’s see how well our matching process did.</p>
+<pre class="python"><code># it appears we were able to guess about 50% of employees&#39; gender
+sum_males = sum(df[&#39;likely_male&#39;])
+sum_females = sum(df[&#39;likely_female&#39;])
+
+print(&#39;Count of likely males: &#39; + str(sum_males))</code></pre>
+<pre><code>## Count of likely males: 10500</code></pre>
+<pre class="python"><code>print(&#39;Count of likely females: &#39; + str(sum_females))</code></pre>
+<pre><code>## Count of likely females: 3572</code></pre>
+<pre class="python"><code>print(&#39;Total likely matches: &#39; + str(sum_males + sum_females))</code></pre>
+<pre><code>## Total likely matches: 14072</code></pre>
+<pre class="python"><code>print(&#39;Total observations in df: &#39; + str(len(df)))</code></pre>
+<pre><code>## Total observations in df: 28201</code></pre>
+<pre class="python"><code>print(&#39;Percentage counted: &#39; + str(np.round((sum_males + sum_females) / len(df) * 100,2)))</code></pre>
+<pre><code>## Percentage counted: 49.9</code></pre>
+</div>
+<div id="bringing-it-all-together" class="section level2">
+<h2>Bringing it all together</h2>
+<p>We have imputed sex information for about half of the employees in our data. Since we have a pretty high n, let’s just toss out those who don’t have sex info. Again, in a real organization, you would have this detail in your records so you would never face this issue.</p>
+<pre class="python"><code># include just the observations of salaried employee that we have gender info for
+df = df[(df[&#39;likely_female&#39;] == 1) | (df[&#39;likely_male&#39;] == 1)]
+
+print(len(df))</code></pre>
+<pre><code>## 14072</code></pre>
+<p>We now just need to select the columns we will be using in our pay equity analysis, join the job level data we compiled in <code>job_spec_df</code>, and we’ll be good to go!</p>
+<pre class="python"><code>df = df[[&#39;last_name&#39;,
+          &#39;first_name&#39;,
+          &#39;title&#39;,
+          &#39;job_code&#39;,
+          &#39;department_name&#39;,
+          &#39;department_number&#39;,
+          &#39;base_salary&#39;,
+          &#39;likely_male&#39;,
+          &#39;likely_female&#39;]]
+
+
+# Now we have dataframe df which has employee data. we want to add payRange, jobClassSalaryMin, and jobClassSalaryMax to the data set
+# mapped as job_code = jobClassCode
+
+combined_df = df.merge(job_spec_df, how=&#39;left&#39;, left_on=&#39;job_code&#39;, right_on=&#39;jobClassCode&#39;)</code></pre>
+<p>Finally, let’s take a look at the shape of our data and save to a file for our analysis.</p>
+<pre class="python"><code>df_to_save = combined_df.dropna()
+
+print(df_to_save.shape)</code></pre>
+<pre><code>## (10778, 18)</code></pre>
+<pre class="python"><code>df_to_save.to_csv(&#39;MVR_preprocessed_data.csv&#39;)</code></pre>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>In part one of this Pay Equity Analysis tutorial, we pulled together the the necessary salary data using Philly’s Open Data API. We then cleaned our job level data to help color our analysis. Finally, we flexed our web scraping muscles to impute sex data and combined with our employee pay data. We are now all set to do the actual pay equity analysis! You can find part two (coming soon) here.</p>
+<p><br>
+<font color="grey"> Originally posted: January 18, 2022</font></p>
+</div>

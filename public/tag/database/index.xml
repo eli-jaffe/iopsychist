@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database | IOPsychist</title>
+    <link>https://iopsychist.netlify.app/tag/database/</link>
+      <atom:link href="https://iopsychist.netlify.app/tag/database/index.xml" rel="self" type="application/rss+xml" />
+    <description>Database</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024</copyright><lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://iopsychist.netlify.app/media/sharing.png</url>
+      <title>Database</title>
+      <link>https://iopsychist.netlify.app/tag/database/</link>
+    </image>
+    
+    <item>
+      <title>Configuring an SSH connection in Jupyter Notebooks</title>
+      <link>https://iopsychist.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/configuring-an-ssh-connection-in-jupyter-notebooks/</guid>
+      <description>&lt;p&gt;Sometimes, the database you want to connect a Jupyter Notebook to is  located behind an SSH tunnel. Using the files here, you can set establish the SSH connection and connect to the database all from within Python.&lt;/p&gt;
+&lt;p&gt;I have this set up such that both the config file and the connector methods are separate from the Python script you are working in. However, you can also copy the mypython_dbconnector.py file into a Jupyter Notebook and not worry about importing it. I like the separation to keep the ipynb file clean. &lt;em&gt;Note:&lt;/em&gt; this code is adapted from &lt;a href=&#34;https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://practicaldatascience.co.uk/data-science/how-to-connect-to-mysql-via-an-ssh-tunnel-in-python&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;create-the-functions-we-will-use&#34;&gt;Create the functions we will use&lt;/h2&gt;
+&lt;p&gt;We need to define a few functions for easily connecting to the database. In this case, we are connecting to a MySQL database so we use the Python package &lt;code&gt;pymysql&lt;/code&gt;. This can easily be changed to a different database if your needs require.&lt;/p&gt;
+&lt;p&gt;Create a file mypython_dbconnector.py with the following code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+import pandas as pd
+import matplotlib.pyplot as plt
+import pymysql
+import logging
+import sshtunnel
+from sshtunnel import SSHTunnelForwarder
+
+import config
+
+
+# define the functions we will be using
+
+def open_ssh_tunnel(verbose=False):
+    &amp;quot;&amp;quot;&amp;quot;Open an SSH tunnel and connect using a username and password.
+    
+    :param verbose: Set to True to show logging
+    :return tunnel: Global SSH tunnel connection
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    if verbose:
+        sshtunnel.DEFAULT_LOGLEVEL = logging.DEBUG
+    
+    global tunnel
+    tunnel = SSHTunnelForwarder(
+        (config.ssh_host, 22),
+        ssh_username = config.ssh_username,
+        ssh_password = config.ssh_password,
+        remote_bind_address = (&#39;127.0.0.1&#39;, 3306)
+    )
+    
+    tunnel.start()
+    
+    
+def mysql_connect():
+    &amp;quot;&amp;quot;&amp;quot;Connect to a MySQL server using the SSH tunnel connection
+    
+    :return connection: Global MySQL database connection
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    global connection
+    
+    connection = pymysql.connect(
+        host=&#39;127.0.0.1&#39;,
+        user=config.database_username,
+        password=config.database_password,
+        database=config.database_name,
+        port=tunnel.local_bind_port
+    )
+    
+
+def run_query(sql):
+    &amp;quot;&amp;quot;&amp;quot;Runs a given SQL query via the global database connection.
+    
+    :param sql: MySQL query
+    :return: Pandas dataframe containing results
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    return pd.read_sql_query(sql, connection)
+
+
+def mysql_disconnect():
+    &amp;quot;&amp;quot;&amp;quot;Closes the MySQL database connection.
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    connection.close()
+    
+    
+def close_ssh_tunnel():
+    &amp;quot;&amp;quot;&amp;quot;Closes the SSH tunnel connection.
+    &amp;quot;&amp;quot;&amp;quot;
+    
+    tunnel.close
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;warning&#34; style=&#34;background-color:lightyellow&#34;&gt;
+&lt;i&gt;Note:&lt;/i&gt; saving this file as dbconnector.py may interfere with other packages in your environment and lead to unexpected behaviors.
+&lt;/div&gt;
+&lt;h2 id=&#34;create-the-config-file-with-our-connection-credentials&#34;&gt;Create the config file with our connection credentials&lt;/h2&gt;
+&lt;p&gt;Next, we need to provide python with the credentials to connect. I like to define these in a separate file so that I can share the actual Jupyter notebook with my work and not have to worry about security. Enter your usernames and passwords in the file below and save it as &lt;code&gt;config.py&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+# Standard TCP/IP
+
+# may need to change this depending on your tunnel connection details
+ssh_host = &#39;128.122.34.205&#39;
+# port 22 by default
+
+ssh_username = &#39;SSH_USERNAME&#39;
+ssh_password = &#39;SSH_PASSWORD&#39;
+
+database_name = &#39;YOUR_DATABASE_NAME&#39;
+localhost = &#39;127.0.0.1&#39;
+# port 3306 by default
+
+database_username = &#39;YOUR_USERNAME&#39;
+database_password = &#39;YOUR_PASSWORD&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;connect-to-the-database-and-get-to-work&#34;&gt;Connect to the database and get to work!&lt;/h2&gt;
+&lt;p&gt;Finally, we are ready to connect and start working with our data. Make sure both the files we just created are in the same directory and then create a new Jupyter Notebook file in the same location.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+import mypython_dbconnector
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We start with the imports we will be using for our work, along with importing our file &lt;code&gt;mypthon_dbconnector.py&lt;/code&gt;. Now, all we need to do is call the functions we defined earlier. We then pass our sql query as a string to our &lt;code&gt;run_query()&lt;/code&gt; command and save the return value to a dataframe. Rinse and repeat as necessary!&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# connect to ssh tunnel and to mysql db
+mypython_dbconnector.open_ssh_tunnel()
+mypython_dbconnector.mysql_connect()
+
+# define query
+query = &#39;&#39;&#39;
+SELECT
+    *
+FROM
+    table_name
+&#39;&#39;&#39;
+
+df = mypython_dbconnector.run_query(query)
+
+# your data analysis here
+# TODO
+
+# close mysql connection and close ssh tunnel
+mypython_dbconnector.mysql_disconnect()
+mypython_dbconnector.close_ssh_tunnel()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once you are connected to the database through the ssh tunnel, you can access it a you normally would. Be sure to disconnect from the database and close the SSH tunnel when you are done working with it. The full directory setup with example jupyter notebook can be found at &lt;a href=&#34;https://github.com/eli-jaffe/ssh_mysql_connect&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/eli-jaffe/ssh_mysql_connect&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resources: Databases</title>
+      <link>https://iopsychist.netlify.app/post/resources-databases/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/resources-databases/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve gathered a number of resources which have helped me at various stages in my journey into databases. Most of the resources listed here range from the beginner to intermediate level. Hopefully they can be of help as you progress along your own journey.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;th&gt;Link&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Relational DB Design&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www3.ntu.edu.sg/home/ehchua/programming/sql/Relational_Database_Design.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www3.ntu.edu.sg/home/ehchua/programming/sql/Relational_Database_Design.html&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Building RDB from CSV files&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://towardsdatascience.com/how-to-build-a-relational-database-from-csv-files-using-python-and-heroku-20ea89a55c63&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://towardsdatascience.com/how-to-build-a-relational-database-from-csv-files-using-python-and-heroku-20ea89a55c63&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10 DB Desgin best practices&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://medium.com/quick-code/10-best-database-design-practices-1f10f3441730&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://medium.com/quick-code/10-best-database-design-practices-1f10f3441730&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;using jupyter and SQL&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.datacamp.com/community/tutorials/beginners-introduction-postgresql&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.datacamp.com/community/tutorials/beginners-introduction-postgresql&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Using PostgreSQL through SQLalchemy&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.compose.com/articles/using-postgresql-through-sqlalchemy/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.compose.com/articles/using-postgresql-through-sqlalchemy/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Using Databases with Python: Postgres, SQLAlchemy, and Alembic&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.learndatasci.com/tutorials/using-databases-python-postgres-sqlalchemy-and-alembic/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.learndatasci.com/tutorials/using-databases-python-postgres-sqlalchemy-and-alembic/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ebook on sql querying&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://use-the-index-luke.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://use-the-index-luke.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ERD database modeling tool&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://erdplus.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://erdplus.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Building a Data Warehouse in Python using PostgreSQL&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://towardsdatascience.com/building-a-data-warehouse-in-python-using-postgresql-77a42e38bd19&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://towardsdatascience.com/building-a-data-warehouse-in-python-using-postgresql-77a42e38bd19&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data Curation Network Primers&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/DataCurationNetwork/data-primers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/DataCurationNetwork/data-primers&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;font color=&#34;grey&#34;&gt; Originally posted: January 10, 2022&lt;/font&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

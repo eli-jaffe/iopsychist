@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Warehouse | IOPsychist</title>
+    <link>https://iopsychist.netlify.app/tag/data-warehouse/</link>
+      <atom:link href="https://iopsychist.netlify.app/tag/data-warehouse/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data Warehouse</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2024</copyright><lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://iopsychist.netlify.app/media/sharing.png</url>
+      <title>Data Warehouse</title>
+      <link>https://iopsychist.netlify.app/tag/data-warehouse/</link>
+    </image>
+    
+    <item>
+      <title>Resources: Databases</title>
+      <link>https://iopsychist.netlify.app/post/resources-databases/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://iopsychist.netlify.app/post/resources-databases/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve gathered a number of resources which have helped me at various stages in my journey into databases. Most of the resources listed here range from the beginner to intermediate level. Hopefully they can be of help as you progress along your own journey.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;th&gt;Link&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Relational DB Design&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www3.ntu.edu.sg/home/ehchua/programming/sql/Relational_Database_Design.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www3.ntu.edu.sg/home/ehchua/programming/sql/Relational_Database_Design.html&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Building RDB from CSV files&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://towardsdatascience.com/how-to-build-a-relational-database-from-csv-files-using-python-and-heroku-20ea89a55c63&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://towardsdatascience.com/how-to-build-a-relational-database-from-csv-files-using-python-and-heroku-20ea89a55c63&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10 DB Desgin best practices&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://medium.com/quick-code/10-best-database-design-practices-1f10f3441730&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://medium.com/quick-code/10-best-database-design-practices-1f10f3441730&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;using jupyter and SQL&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.datacamp.com/community/tutorials/beginners-introduction-postgresql&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.datacamp.com/community/tutorials/beginners-introduction-postgresql&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Using PostgreSQL through SQLalchemy&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.compose.com/articles/using-postgresql-through-sqlalchemy/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.compose.com/articles/using-postgresql-through-sqlalchemy/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Using Databases with Python: Postgres, SQLAlchemy, and Alembic&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.learndatasci.com/tutorials/using-databases-python-postgres-sqlalchemy-and-alembic/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.learndatasci.com/tutorials/using-databases-python-postgres-sqlalchemy-and-alembic/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ebook on sql querying&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://use-the-index-luke.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://use-the-index-luke.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ERD database modeling tool&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://erdplus.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://erdplus.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Building a Data Warehouse in Python using PostgreSQL&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://towardsdatascience.com/building-a-data-warehouse-in-python-using-postgresql-77a42e38bd19&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://towardsdatascience.com/building-a-data-warehouse-in-python-using-postgresql-77a42e38bd19&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data Curation Network Primers&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/DataCurationNetwork/data-primers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/DataCurationNetwork/data-primers&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;font color=&#34;grey&#34;&gt; Originally posted: January 10, 2022&lt;/font&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
